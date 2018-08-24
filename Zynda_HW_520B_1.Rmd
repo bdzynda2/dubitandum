@@ -1,0 +1,92 @@
+---
+title: "Econ 501B HW 1"
+author: "David Zynda"
+date: "August 23, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+__Question 1__: _True or False_. Fix an environment $(T, B; (\succsim)_{t \in T}, (\succsim)_{b \in B})$ so the following holds:
+
+There exists $t_* \in T$ and $b_* \in B$, with:
+
+(1) $b_* \succ_{t_*} b$ for each $b \in B \setminus\{b_*\}$, and
+(2) $t_* \succ_{b_*} t$ for each $t \in T \setminus \{t_*\}$.
+
+Then, in any stable match $\mu: (T \cup B) \rightarrow (T \cup B), \mu(t_*) = b_*$
+
+_____________________________________________________________________________
+
+This is false. Let:
+
+\[ \begin{cases}
+			 t_1:  \\
+			 \frac{1}{2} & x = 1 \\
+			 \frac{1}{4} & x = 2 
+		\end{cases}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
