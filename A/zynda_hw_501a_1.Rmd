@@ -158,6 +158,8 @@ _For each of the following four preferences, answer the follwing two questions: 
 
 _In parts (a), (b), and (c), let $X = \mathbb{R}^2_+$ so an element $x \in X$ is a vector: $x = (x_1, x_2)$ where $x_1$ and $x_2$ are nonnegative real numbers._
 
+Note: I will use vector $z = (z_1, z_2)$ as I prove transitivity. 
+
 __(a) $x \succeq y \iff x_1 + x_2 \ge y_1 + y_2$__
 
 The preference is complete. 
@@ -174,11 +176,13 @@ __(b) $x \succeq y \iff x_1 \ge y_1$ and $x_2 \ge y_2$__
 
 This is not complete. Let $x_1 < y_1$ and $x_2 \ge y_2$. This cannot be represented by any preference relation. 
 
-It is transitive. Suppose $$y_1 \ge z_1 \\ y_2 \ge z_2$$
+It is transitive. Suppose 
+$$y_1 \ge z_1$$  
+$$y_2 \ge z_2$$
 
 Then, we have:
 
-$$x_1 \ge y_1 \ge z_1 \implies x_1 \ge z_1 \\ x_2 \ge y_2 \ge z_2 \implies x_2 \ge z_2$$
+$$x_1 \ge y_1 \ge z_1 \implies x_1 \ge z_1 \\ x_2 \ge y_2 \ge z_2 \implies x_2 \ge z_2 \implies x \succ_eq z$$
 
 __(c) $x \succeq y \iff$ either $x_1 > y_1$ or both $x_1 = y_1$ and $x_2 \ge y_2$.__
 
@@ -188,8 +192,17 @@ This is complete.
 
 $$x_1 = y_1 \ and \ x_2 < y_2 \implies y \succ x$$
 $$x_1 > y_1 \implies x \succ y$$
-
 $$x_1 = y_1 \ and \ x_2 = y_2 \implies x \sim y$$
+
+
+This is transitive. 
+
+$$x_1 > y_1  \\ y_1 > z_1 \implies x_1 > z_1 \implies x \succeq z$$
+
+Or note the following:
+
+$$x_1 = y_1 = z_1 \\ x_2 \ge y_2 \ and \ y_2 \ge z_2 \implies x_2 \ge z_2 \\ \implies x \succeq z$$
+
 
 
 
