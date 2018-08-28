@@ -38,11 +38,11 @@ _(a) Prove that $u^*(B)$ is increasing in $B$. That is, prove that if $B \in B'$
 
 $$B \subset B' \implies \sup u(x)_{x \in B} \le \sup u(x)_{x \in B'} \implies u^*(B) \le u^*(B')$$
 
-Let $B \subset B'$. Then $B'$ contains at least one more element than $B$. If $B \subseteq B'$, then it may contain the same elements. If $B`$ has more elements than $B$, then these elements contained in $B`$ will either be larger or smaller than the maximum element of $B$ which is also found, by definition, in $B'$. If the elements in $B'$ not in $B$ are smaller than the maximum element in $B$ then $\sup u(x)_{x \in B} = \sup u(x)_{x \in B'} \implies u^*(B) = u^*(B')$.
+Let $B \subset B'$. Then $B'$ contains at least one more element than $B$. If $B \subseteq B'$, then it may contain the same elements. If $B'$ has more elements than $B$, then these elements contained in $B'$ will either be larger or smaller than the maximum element of $B$ which is also found, by definition, in $B'$. If the elements in $B'$ not in $B$ are smaller than the maximum element in $B$ then $\sup u(x)_{x \in B} = \sup u(x)_{x \in B'} \implies u^*(B) = u^*(B')$.
 
 If there is an element in $B'$ that is not in $B$ which is greater than all elements in $B$, then, $\sup u(x)_{x \in B} < \sup u(x)_{x \in B'} \implies u^*(B) < u^*(B')$.
 
-An increasing function is one such that each subsequent value is greater than or equal to the previous value. Hence, in both cases above, $u(B)$ is an increasing function. 
+An increasing function is one such that each subsequent value is greater than or equal to the previous value (Precisely: $\forall x,y \in \mathbb{R}: x< y \implies f(x) < f(y)$. Hence, in both cases above, $u^*(B)$ is an increasing function. 
 
 
 
@@ -102,7 +102,7 @@ _Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a strictly increasing function. D
 
 _(a) Prove the above proposition_
 
-Let $x, y \in B$ and $u(B \setminus x) < u^*(x)$ such that $u^*(y) < u^*(x)$ and by definition $u^*(x), u^*(y) \in \mathbb{R}$.
+Let $x, y \in B$ and $u^*(B \setminus x) < u^*(x)$ such that $u^*(y) < u^*(x)$ and by definition $u^*(x), u^*(y) \in \mathbb{R}$.
 
 Define $f: \mathbb{R} \rightarrow \mathbb{R}$ to be a strictly increasing function such that:
 
@@ -146,7 +146,7 @@ _Recall the previous problem where $X = \{a,b,c\}$ and $u(a) = 1$, $u(b) = 1$, a
 (2) $\{a,c\}$: $c \succeq a$ and $a \nsucceq c$
 (3) $\{b,c\}$: $b \nsucceq c$ and $c \succeq b$
 
-Also note that: $a \succeq a$, $b \succeq b$ anda $c \succeq c$. 
+Also note that: $a \succeq a$, $b \succeq b$ and $c \succeq c$. 
 
 
 
@@ -164,10 +164,14 @@ __(a) $x \succeq y \iff x_1 + x_2 \ge y_1 + y_2$__
 
 The preference is complete. 
 
-$$(1) \ x_1 + x_2 < y_1 + y_2 \\ (2) \ x_1 + x_2 = y_1 + y_2 \\ (3) \ x_1 + x_2 > y_1 + y_2$$
+$$(1) \ x_1 + x_2 < y_1 + y_2$$
+$$(2) \ x_1 + x_2 = y_1 + y_2$$
+$$(3) \ x_1 + x_2 > y_1 + y_2$$
 Which imply:
 
-$$(1) \ y \succ x \\ (2) \ x \sim y \\ (3) \ x \succ y$$
+$$(1) \ y \succ x$$
+$$(2) \ x \sim y$$
+$$(3) \ x \succ y$$
 
 The preference is transitive. Let $y_1 + y_2 \ge z_1 + z_2$ Then, $x \succeq y \succeq z \iff x_1 + x_2 \ge y_1 + y_2 \ge z_1 + z_2$ and so $x_1 + x_2 \ge z_1 + z_2 \iff x \succeq z$
 
@@ -182,7 +186,8 @@ $$y_2 \ge z_2$$
 
 Then, we have:
 
-$$x_1 \ge y_1 \ge z_1 \implies x_1 \ge z_1 \\ x_2 \ge y_2 \ge z_2 \implies x_2 \ge z_2 \implies x \succ_eq z$$
+$$x_1 \ge y_1 \ge z_1 \implies x_1 \ge z_1$$
+$$x_2 \ge y_2 \ge z_2 \implies x_2 \ge z_2 \implies x \succeq z$$
 
 __(c) $x \succeq y \iff$ either $x_1 > y_1$ or both $x_1 = y_1$ and $x_2 \ge y_2$.__
 
@@ -197,11 +202,37 @@ $$x_1 = y_1 \ and \ x_2 = y_2 \implies x \sim y$$
 
 This is transitive. 
 
-$$x_1 > y_1  \\ y_1 > z_1 \implies x_1 > z_1 \implies x \succeq z$$
+$$x_1 > y_1$$
+$$y_1 > z_1 \implies x_1 > z_1 \implies x \succeq z$$
 
 Or note the following:
 
-$$x_1 = y_1 = z_1 \\ x_2 \ge y_2 \ and \ y_2 \ge z_2 \implies x_2 \ge z_2 \\ \implies x \succeq z$$
+$$x_1 = y_1 = z_1$$
+$$x_2 \ge y_2 \ and \ y_2 \ge z_2 \implies x_2 \ge z_2$$
+$$\implies x \succeq z$$
+
+
+__(d) Now let $X = \{1,2,3\}$. There are three individuals, each with their own complete and transitive preferences: For Ann, $1 \succ_a 2 \succ_a 3$. For Bob, $2 \succ_b 3 \succ_b 1$. For Carol, $3 \succ_c 1 \succ_c 2$. Define a new preference $\succeq$ such that $x \succeq y$ if and only if at least two of the three individuals prefer $y$ to $x$. Is this new preference transitive and complete?__
+
+
+This preference is complete. 
+
+$$1 \succeq 2$$
+$$3 \succeq 1$$
+$$2 \succeq 3$$
+So, all bases are covered. Now, this is not transitive because:
+
+$$1 \succeq 2 \succeq 3 \succeq 1$$
+Which is circular. 
+
+
+
+
+
+
+
+
+
 
 
 
