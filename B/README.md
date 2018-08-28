@@ -1,2 +1,2 @@
 # dubitandum
-garbage
+Notes and coursework for Microeconomic Theory courses. 
