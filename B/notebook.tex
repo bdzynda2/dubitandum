@@ -141,7 +141,7 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{Lecture1}
+    \title{Lecture3}
     
     
     
@@ -280,122 +280,270 @@
     
 
     
-    \subsection{One-to-One Matching
-Markets}\label{one-to-one-matching-markets}
+    \section{Lecture 3}\label{lecture-3}
 
-"A firm is matched to exactly one worker for the position"
+\subsection{August 28, 2018}\label{august-28-2018}
 
-\subsubsection{Beginning Notation and
-Concept}\label{beginning-notation-and-concept}
+\subsection{Econ 501B}\label{econ-501b}
 
-Let:
+    \subsubsection{Theorem: Gale-Shapley
+(1962):}\label{theorem-gale-shapley-1962}
 
-\[T = \{t_1, ..., t_{|T|}\}\] \[B = \{b_1, ..., b_{|B|}\}\]
+\emph{In any one-to-one matching environment there exists a stable
+matching \(\mu\).}
 
-Where \(|T| \ne |B|\) in all cases. Consider an agent
-\(i \in T \cup B\). This agent is in either one side of the market or
-the other. That is \(I \in \{T, B\}\) \(J\) will be on the other side of
-the market. So, \(J \in \{T, B\} \setminus \{I\}\)
+The proof is constructive such that it makes a stable matching \(\mu\)
+such that it employs the T-proposal Deferred Acceptance Algorithm.
 
-Agents \(i \in I\) only care to match with agents inside \(J\).
-
-\subsubsection{Preferences of Agents}\label{preferences-of-agents}
-
-Preferences are represented as a binary relation \(\succsim_i\) on the
-set \(J \cup \{i\}\) (this set says that agent \(i \in I\) prefers the
-\(J\) side of the market or to keep to himself).
-
-\(j \succsim_i k\) means \(i\) weakly prefers \(j\) to \(k\) where
-\(j, k \in J\).
-
-\(j \succsim_i i\) means \(i\) weakly prefers \(j\) to remaining alone.
-
-\subsubsection{Two Fundamental
-Assumptions:}\label{two-fundamental-assumptions}
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\item
-  Preferences are complete
-\item
-  Preferences are transitive
-\end{enumerate}
-
-Completeness requires either \(j \succsim_i k\) or \(k \succsim_i j\)
-
-Transitivity requires that if \(j \succsim_i k\) and \(k \succsim_i l\)
-then \(j \succsim_i l\)
-
-In the event that \(j \succsim_ k\) and \$ \lnot (k \succsim\_i j)\$,
-the \(j\) is strictly preferred to \(k\).
-
-\subsubsection{Some Implicit
-Assumptions}\label{some-implicit-assumptions}
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\tightlist
-\item
-  Agents only care about "name" of agents on other side of the market.
-  We can account for this by re-labeling and thinking of names of agents
-  as being associated with different prices or wages.
-\end{enumerate}
-
-This account does rule out that you care about match of other agents in
-the market (externalities matching). We assume that agents don't care
-about where other agents end up.
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Agents only rank a single agent in other side of market and not groups
-  of agents. This is the case only in 1-to-1 matching. In short, each
-  \(T\) is matched to one \(B\) and one \(B\) is matched to one \(T\).
-\end{enumerate}
-
-\subsubsection{The Matching Map}\label{the-matching-map}
-
-A matching is a map (function)
-\(\mu : (T \cup B) \rightarrow (T \cup B)\) such that for each:
-
-\[I \in \{T, B\} \\ B \in \{T,B\} \setminus \{I\}\]
-
-the following hold:
+\textbf{Sketch of Algorithm}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  for each \(i \in I: \mu(i) \in J \cup \{i\}\)
+  Each T agent proposes to her most preferred B agent if there is one
+  that is acceptable to her. Each B agent tentatively holds on to the
+  most preferred proposal provided that there is one acceptable to her.
 \item
-  if \(\mu(i) = j \in J\) then \(\mu(j) = i \in I\)
+  Denote this step as \(k \ge 2\). Each T agent that was rejected at
+  Step \(k-1\) makes the proposal to her next highest acceptable choice
+  if there is one. And each B agent tentatively holds on to her most
+  preferred option amongst new proposals plus \(k-1\) held proposals if
+  there is one acceptable. All other proposals are rejected.
 \end{enumerate}
 
-A bit less dense, the first point says that for each \(t \in T\),
-\(\mu(t) \in B \cup \{t\}\) or for each \(b \in B\),
-\(\mu(b) \in T \cup \{b\}\)
+Algorithm will terminate when: \(k = k+1\)
 
-Likewise, (2) can be expressed \(\mu(t) = b\) if and only if
-\(\mu(b) = t\).
+    Fix \(X \subset J\) where \(J\) is a set of agents. Write
+\(\max_i X = \{j \in X: j \succsim_i j' \forall j' \in X\}\)
 
-We write \(t\) is matched if \(\mu(t) \ne t\). That is, your are matched
-if you are not with yourself.
+If \(X = \emptyset\) then \(\max_i X = \emptyset\)
 
-\textbf{Remark}: Matching \(\mu\) is a one-to-one (injective) function.
+    Formally, the Algorithm can be written as follows:
 
-\emph{Proof}: Suppose \(\exists i_1, i_2 \in I\) such that
-\(\mu(i_1) = \mu(i_2)\). That is, two agents matched to the same \(j\).
-Then, \(i_1 = i_2\) since this is one-to-one matching.
+\textbf{Round 1:}
 
-Lastly, matching is of order 2. That is:
+\(A^1(t) = A(t)\) T ask what agents are acceptable to me in round 1?
 
-\[\mu^2(i) \equiv \mu(\mu(i)) = i\]
+\(\hat{P}^1 : T \rightarrow B \cup \{\emptyset\} : \hat{P}^1 \in \max_t A^1(t)\)
+I want to make proposal to best B agent. T is matched with best B agent
+or keeps to himself (empty set).
 
-Fix \(\mu(i) = j\). Then since if \(\mu(i) = j \in J\) then
-\(\mu(j) = i \in I\):
+If \(A^1(t) \ne \emptyset\) choose the best B agent. If
+\(A^1(t) = \emptyset\), choose \(\emptyset\)
 
-\[\mu(\mu(i)) = \mu(j) = i\]
+What are B agents going to do?
+
+\(P^1(b) = (\hat{P}^1)^{-1}(\{b\}) \cap A(b) = \{t \in T: \hat{P}^1(t) = b : t \in A(b)\}\)
+
+The above means t has made a proposal to me and that t is acceptable to
+me.
+
+    Now, \(\hat{\mu}^1: B \rightarrow T \cup \{\emptyset\}\) such that
+\(\hat{\mu}^1 \in \max_b P^1(b)\)
+
+If \(p^1(b) = \emptyset\) then \(\hat{\mu}^1(b) = \emptyset\). That is
+if none are acceptable, I hold on to myself.
+
+    \textbf{Round k+1}:
+
+Inductively, I have defined:
+
+\begin{itemize}
+\tightlist
+\item
+  Sets \((A^k(t): t \in T)\)
+\item
+  maps \(\hat{P}^k: T \rightarrow B \cup \{\emptyset\}\)
+\item
+  sets \((P^k(b): b \in B)\) and \(P^k \subseteq T\)
+\item
+  maps \(\hat{\mu}^k: B \rightarrow T \cup \{\emptyset\}\)
+\end{itemize}
+
+    \(A^{k+1}(t) =\)
+
+\textbf{(1)} \(A^k(t)\) if \(\hat{\mu}^k(\hat{P}^k) = t\) meaning t
+proposed at k to \(b = \hat{P}^k(t)\) and b accepted t at \(k\).
+
+But, he if rejected the offer, I throw him out of the running:
+
+\textbf{(2)} \(A^k(t) \setminus \{\hat{P}^k(t)\}\)
+
+if
+
+\(\hat{\mu}^k(\hat{P}^k(t)) \ne t\)
+
+If I was accepted on round \(k\), then I offer the same offer to the
+same person on round \(k+1\).
+
+\(\hat{P}^{k+1}(t) = \hat{P}^k\) if it is the case that
+\(\hat{P}^k(t) \in A^{k+1}(t)\)
+
+\(\hat{P}^{k+1}(t) \in \max_t A^{k+1}(t)\) if it is the case
+\(\hat{P}^k(t) \notin A^{k+1}(t)\)
+
+The set of proposals that b has on round \(k+1\):
+
+\(P^{k+1}(b) = (\hat{P}^{k+1})^{-1} (\{b\}) \cap A(b)\)
+
+Which is equivalent to:
+
+\[\{t \in T: \hat{P}^{k+1}(t) = b: t \in A(b)\]
+
+    I hold on to exactly the same offer if it is the case that b is still a
+maximizer for me.
+
+\[\hat{\mu}^{k+1}: B \rightarrow T \cup \{B\}\]
+
+\(\hat{\mu}^{k+1}(b) = \hat{\mu}^{k}(b)\) if it is the case that
+\(\hat{\mu}^{k+1}(b) \in \max_b P^{k+1}(b)\)
+
+And
+
+\(\hat{\mu}^{k+1}(b) = \max_b P^{k+1}(b)\) if it is the case that
+\(\hat{\mu}^{k+1}(b) \notin \max_b P^{k+1}(b)\)
+
+    \subsubsection{Lemma 1: the T-proposal in the algorithm
+terminates:}\label{lemma-1-the-t-proposal-in-the-algorithm-terminates}
+
+\[\exists K < \infty: \forall k \ge K: \hat{P}^k = \hat{P}^K \land \hat{\mu}^k = \hat{\mu}^K\]
+
+    \textbf{Proof}
+
+k is when the acceptable offer stops for every t agent.
+
+For each \(t \in T\), \((A^k(t): k = 1,2,...)\) is decreasing.
+
+\(..., \subseteq A^3(t) \subseteq A^2(t) \subseteq A^1(t)\)
+
+\(\exists K: \forall t \in T, A^k(t) = A^K(t) \forall k \ge K\)
+
+By definition, \(\hat{P}^k(t) = \hat{P}^k(t)\) for all \(t \in T\) and
+\(k \ge K\)
+
+This implies that \(\hat{P}^k(b) = \hat{P}^k(b)\) for all \(b \in B\)
+and \(k \ge K\)
+
+Which implies that \(\hat{\mu}^k(b) = \hat{\mu}^K(b)\) for all
+\(b \in B\) and \(k \ge K\).
+
+Show that the algorithm terminates. But does it give us a stable match?
+
+    \subsubsection{Example}\label{example}
+
+Let \(T = \{t_1, t_3, t_3\}\) and also \(B = \{b_1, b_2, b_3\}\)
+
+\[t_1: b_2 \succ_{t_1} b_1 \succ_{t_1} b_3 \succ_{t_1} t_1\]
+
+    \[t_2: b_1 \succ_{t_2} b_2 \succ_{t_2} b_3 \succ_{t_2} t_2\]
+
+    \[t_3: b_1 \succ_{t_3} b_2 \succ_{t_3} b_3 \succ_{t_3} t_3\]
+
+Notice \(t_2\) and \(t_3\) have the same preferences.
+
+\(B\)'s preferences:
+
+\[b_1: t_1 \succ_{b_1} t_3 \succ_{b_1} t_2 \succ_{b_1} b_1\]
+
+    \[b_2: t_2 \succ_{b_2} t_1 \succ_{b_2} t_3 \succ_{b_2} b_2\]
+
+    \[b_3: t_1 \succ_{b_3} t_3 \succ_{b_3} t_2 \succ_{b_3} b_3\]
+
+Notice \(b_1\) and \(b_3\) have the same preference.
+
+    \textbf{Step 1:}
+
+\begin{itemize}
+\tightlist
+\item
+  for all \(t \in T: A^1(t) = B\)
+\item
+  \(B^1(t_1) = b_2, \hat{P}^1(t_2) = b_1, \hat{P}^1(t_3) = b_1\)
+\item
+  \(P^1(b_1) = \{t_2, t_3\}\) and \(P^1(b_2) = \{t_1\}\) and
+  \(P^1(b_3) = \emptyset\)
+\item
+  \(\hat{\mu}^1(b_1) = t_3\) and \(\hat{\mu}^1(b_2) = t_1\) and
+  \(\hat{\mu}^1(b_3) = \emptyset\)
+\end{itemize}
+
+\textbf{Step 2:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(A^2(t_1) = B\) and \(A^2(t_2) = \{b_2, b_3\}\) and \(A^2(t_3) = B\)
+\item
+  \(\hat{P}^2(t_1) = b_2\) and \(\hat{P}^2(t_2) = b_2\) and
+  \(\hat{P}^2(t_3) = b_1\)
+\item
+  \(P^2(b_1) = \{t_3\}\) and \(P^2(b_2) = \{t_1, t_2\}\) and
+  \(P^3(b_3) = \emptyset\)
+\item
+  \(\hat{\mu}^2(b_1) = t_3\) and \(\hat{\mu}^2(b_2) = t_2\) and
+  \(\hat{\mu}^2(b_3) = \emptyset\)
+\end{itemize}
+
+\textbf{Step 3:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(A^3(t_1) = \{b_1, b_3\}\) and \(A^3(t_2) = \{b_2, b_3\}\) and
+  \(A^3(t_3) = B\)
+\item
+  \(\hat{P}^3(t_1) = b_1\) and \(\hat{P}^3(t_2) = b_2\) and
+  \(\hat{P}^3(t_3) = b_1\)
+\item
+  \(P^3(b_1) = \{t_1, t_3\}\) and \(P^3(b_2) = \{t_2\}\) and
+  \(P^3(b_3) = \emptyset\)
+\item
+  \(\hat{\mu}^3(b_1) = t_3\) and \(\hat{\mu}^3(b_2) = t_2\) and
+  \(\hat{\mu}^3(b_3) = \emptyset\)
+\end{itemize}
+
+\textbf{Step 4:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(A^4(t_1) = \{b_1, b_3\}\) and \(A^4(t_2) = \{b_2, b_3\}\) and
+  \(A^4(t_3) = \{b_2, b_3\}\)
+\item
+  \(\hat{P}^4(t_1) = b_1\) and \(\hat{P}^4(t_2) = b_2\) and
+  \(\hat{P}^4(t_3) = b_2\)
+\item
+  \(P^4(b_1) = \{t_1\}\) and \(P^4(b_2) = \{t_2, t_3\}\) and
+  \(P^4(b_3) = \emptyset\)
+\item
+  \(\hat{\mu}^4(b_1) = t_1\) and \(\hat{\mu}^4(b_2) = t_2\) and
+  \(\hat{\mu}^4(b_3) = \emptyset\)
+\end{itemize}
+
+\textbf{Step 5:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(A^5(t_1) = \{b_1, b_3\}\) and \(A^5(t_2) = \{b_2, b_3\}\) and
+  \(A^5(t_3) = \{b_3\}\)
+\item
+  \(\hat{P}^5(t_1) = b_1\) and \(\hat{P}^5(t_2) = b_2\) and
+  \(\hat{P}^5(t_3) = b_3\)
+\item
+  \(P^5(b_1) = \{t_1\}\) and \(P^5(b_2) = \{t_2\}\) and
+  \(P^5(b_3) = \{t_3\}\)
+\item
+  \(\hat{\mu}^5(b_1) = t_1\) and \(\hat{\mu}^5(b_2) = t_2\) and
+  \(\hat{\mu}^5(b_3) = t_3\).
+\end{itemize}
+
+You can check this is exactly what was completed last class without the
+Differed Acceptance Algorithm.
+
+Since it terminates at \(k+1\) technically there is a \textbf{Step 6}
+where everything in \textbf{5} is repeated.
 
 
     % Add a bibliography block to the postdoc
