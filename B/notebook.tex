@@ -141,7 +141,7 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{Lecture3}
+    \title{Lecture4}
     
     
     
@@ -280,95 +280,48 @@
     
 
     
-    \section{Lecture 3}\label{lecture-3}
+    August 30, 2018
 
-\subsection{August 28, 2018}\label{august-28-2018}
+\textbf{Just basic review from last lecture and notations}
 
-\subsection{Econ 501B}\label{econ-501b}
+First, let DA = Deferred Acceptance Algorithm.
 
-    \subsubsection{Theorem: Gale-Shapley
-(1962):}\label{theorem-gale-shapley-1962}
+Brief Review of DA:
 
-\emph{In any one-to-one matching environment there exists a stable
-matching \(\mu\).}
+Set of acceptable partners for \(i\):
+\(A(i) = \{j \in J: j \succeq_i i \}\)
 
-The proof is constructive such that it makes a stable matching \(\mu\)
-such that it employs the T-proposal Deferred Acceptance Algorithm.
+\(X \subset J\)
+\(\max_i X = \{j \in X: j \succeq_i j' \forall j' \in X \}\)
 
-\textbf{Sketch of Algorithm}
+if \(X \ne \emptyset\) then \(\max_i X = \emptyset\)
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Each T agent proposes to her most preferred B agent if there is one
-  that is acceptable to her. Each B agent tentatively holds on to the
-  most preferred proposal provided that there is one acceptable to her.
-\item
-  Denote this step as \(k \ge 2\). Each T agent that was rejected at
-  Step \(k-1\) makes the proposal to her next highest acceptable choice
-  if there is one. And each B agent tentatively holds on to her most
-  preferred option amongst new proposals plus \(k-1\) held proposals if
-  there is one acceptable. All other proposals are rejected.
-\end{enumerate}
+DA (T-proposing)
 
-Algorithm will terminate when: \(k = k+1\)
+\textbf{Round 1} \(A^1(t) = A(t)\) set for each \(t \in T\) set of
+acceptable agents for agent t
 
-    Fix \(X \subset J\) where \(J\) is a set of agents. Write
-\(\max_i X = \{j \in X: j \succsim_i j' \forall j' \in X\}\)
+\(\hat{P}^1: T \rightarrow B \cup \{\emptyset\} : \hat{P}^1(t) \in \max_t A^1(t)\)
+specify proposal to some maximal agent that is acceptable to her (t)
 
-If \(X = \emptyset\) then \(\max_i X = \emptyset\)
+Set for each \(b \in B\)
+\(P^1(b) = (\hat{P}^1)^{-1}(\{b\}) \cap A(b) = \{t \in A(b): \hat{P}^1(t) = b\}\)
+Induce set of proposals for b agents: the set of t's that are acceptable
+to b. Could be empty
 
-    Formally, the Algorithm can be written as follows:
+\(\hat{\mu}^1: B \rightarrow T \cup \{\emptyset\}\) and
+\(\hat{mu}^1 \in \max_b P^1(b)\) Given this, the b agents will choose a
+maximal agents from the set of his round one proposals.
 
-\textbf{Round 1:}
-
-\(A^1(t) = A(t)\) T ask what agents are acceptable to me in round 1?
-
-\(\hat{P}^1 : T \rightarrow B \cup \{\emptyset\} : \hat{P}^1 \in \max_t A^1(t)\)
-I want to make proposal to best B agent. T is matched with best B agent
-or keeps to himself (empty set).
-
-If \(A^1(t) \ne \emptyset\) choose the best B agent. If
-\(A^1(t) = \emptyset\), choose \(\emptyset\)
-
-What are B agents going to do?
-
-\(P^1(b) = (\hat{P}^1)^{-1}(\{b\}) \cap A(b) = \{t \in T: \hat{P}^1(t) = b : t \in A(b)\}\)
-
-The above means t has made a proposal to me and that t is acceptable to
-me.
-
-    Now, \(\hat{\mu}^1: B \rightarrow T \cup \{\emptyset\}\) such that
-\(\hat{\mu}^1 \in \max_b P^1(b)\)
-
-If \(p^1(b) = \emptyset\) then \(\hat{\mu}^1(b) = \emptyset\). That is
-if none are acceptable, I hold on to myself.
-
-    \textbf{Round k+1}:
-
-Inductively, I have defined:
-
-\begin{itemize}
-\tightlist
-\item
-  Sets \((A^k(t): t \in T)\)
-\item
-  maps \(\hat{P}^k: T \rightarrow B \cup \{\emptyset\}\)
-\item
-  sets \((P^k(b): b \in B)\) and \(P^k \subseteq T\)
-\item
-  maps \(\hat{\mu}^k: B \rightarrow T \cup \{\emptyset\}\)
-\end{itemize}
-
-    \(A^{k+1}(t) =\)
+    \(A^{k+1}(t) =\) either \textbf{(1)} or \textbf{(2)}
 
 \textbf{(1)} \(A^k(t)\) if \(\hat{\mu}^k(\hat{P}^k) = t\) meaning t
 proposed at k to \(b = \hat{P}^k(t)\) and b accepted t at \(k\).
 
 But, he if rejected the offer, I throw him out of the running:
 
-\textbf{(2)} \(A^k(t) \setminus \{\hat{P}^k(t)\}\)
+\textbf{(2)} \(A^k(t) \setminus \{\hat{P}^k(t)\}\) Takeaway particular b
+from set if denied in step 1
 
 if
 
@@ -404,146 +357,261 @@ And
 \(\hat{\mu}^{k+1}(b) = \max_b P^{k+1}(b)\) if it is the case that
 \(\hat{\mu}^{k+1}(b) \notin \max_b P^{k+1}(b)\)
 
-    \subsubsection{Lemma 1: the T-proposal in the algorithm
-terminates:}\label{lemma-1-the-t-proposal-in-the-algorithm-terminates}
+    \subsection{Matching}\label{matching}
 
-\[\exists K < \infty: \forall k \ge K: \hat{P}^k = \hat{P}^K \land \hat{\mu}^k = \hat{\mu}^K\]
+We defined a matching from agents of one side of a market to another
+side of the market such that: \(\mu :(T \cup B) \rightarrow (T \cup B)\)
 
-    \textbf{Proof}
+If you go through the rounds the t agents make new proposals. As they
+make new proposals, it is worse for t agents. As t makes new proposals,
+it is also better for the b agents since they get more options which
+might be preferred.
 
-k is when the acceptable offer stops for every t agent.
+\subsubsection{Lemma 2}\label{lemma-2}
 
-For each \(t \in T\), \((A^k(t): k = 1,2,...)\) is decreasing.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For eack \(k\) and each \(t \in T\),
+  \(\hat{P}^k(t) \succeq_t \hat{P}^{k+1}(t).\)
+\item
+  For each \(k\) and each \(b \in B\),
+  \(\hat{mu}^{k+1} \succeq_b \hat{\mu}^k(b).\)
+\end{enumerate}
 
-\(..., \subseteq A^3(t) \subseteq A^2(t) \subseteq A^1(t)\)
+\textbf{Proof}
 
-\(\exists K: \forall t \in T, A^k(t) = A^K(t) \forall k \ge K\)
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+\end{enumerate}
 
-By definition, \(\hat{P}^k(t) = \hat{P}^k(t)\) for all \(t \in T\) and
-\(k \ge K\)
+Recall: \(A^{k+1}(t) \subset A^(t)\)
 
-This implies that \(\hat{P}^k(b) = \hat{P}^k(b)\) for all \(b \in B\)
-and \(k \ge K\)
+\(\hat{P}^{k+1}(t) \in \max_t A^{k+1}(t)\)
 
-Which implies that \(\hat{\mu}^k(b) = \hat{\mu}^K(b)\) for all
-\(b \in B\) and \(k \ge K\).
+\(\hat{P}^{k}(t) \in \max_t A^{k}(t)\)
 
-Show that the algorithm terminates. But does it give us a stable match?
+\(\implies \hat{P}^{k}(t) \succeq_t \hat{P}^{k+1}(t)\)
 
-    \subsubsection{Example}\label{example}
+    \begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+\end{enumerate}
 
-Let \(T = \{t_1, t_3, t_3\}\) and also \(B = \{b_1, b_2, b_3\}\)
+Suppose: \(\hat{\mu}^k(b) = t\) and so \(\hat{P}^{k}(t)=b\)
 
-\[t_1: b_2 \succ_{t_1} b_1 \succ_{t_1} b_3 \succ_{t_1} t_1\]
+\(A^{k+1} = A^k(t) \implies \hat{P}^{k+1}(t) = \hat{P}^{k}(t) = b\)
 
-    \[t_2: b_1 \succ_{t_2} b_2 \succ_{t_2} b_3 \succ_{t_2} t_2\]
+\(\implies t \in \hat{P}^{k+1}(t)\)
 
-    \[t_3: b_1 \succ_{t_3} b_2 \succ_{t_3} b_3 \succ_{t_3} t_3\]
+if \(\hat{mu}^{k+1}(b) = t\) then certainly
+\(\hat{mu}^{k+1}(b) \succeq_b \hat{mu}^{k}(b)\)
 
-Notice \(t_2\) and \(t_3\) have the same preferences.
+if \(\hat{mu}^{k+1}(b) \ne t\) then
+\(\hat{mu}^{k+1}(b) \succeq_b t = \hat{\mu}^k(b)\)
 
-\(B\)'s preferences:
+    \subsubsection{Lemma 3}\label{lemma-3}
 
-\[b_1: t_1 \succ_{b_1} t_3 \succ_{b_1} t_2 \succ_{b_1} b_1\]
+Fix \(b \ne b'\) If \(\hat{mu}^{k}(b) = \hat{mu}^{k}(b')\) then
+\(\hat{mu}^{k}(b) = \hat{mu}^{k}(b') = \emptyset\)
 
-    \[b_2: t_2 \succ_{b_2} t_1 \succ_{b_2} t_3 \succ_{b_2} b_2\]
+\textbf{Proof:}\_
 
-    \[b_3: t_1 \succ_{b_3} t_3 \succ_{b_3} t_2 \succ_{b_3} b_3\]
+Fix \(b \ne b'\)
 
-Notice \(b_1\) and \(b_3\) have the same preference.
+\(\hat{mu}^{k}(b) \in P^k(b)\)
 
-    \textbf{Step 1:}
+\(\hat{mu}^{k}(b') \in P^k(b')\)
+
+\(P^k(b) \cap P^k(b') = \emptyset\)
+
+If \(t \in P^k(b) \cap P^k(b')\) then \(\hat{P}^k(t) = b = b'\)
+
+This is a contradiction, since a function is mapping more than one thing
+to another (like one x to two y's). \(P^k\) is a function.
+
+    By Lemma 1 (last class) there exits a \(k < \infty\) such that
+\(\hat{mu}^{K} = \hat{mu}^{k}\) for all \(k \ge K\).
+
+\(\mu^*: (T \cup B) \rightarrow (T \cup B)\)
 
 \begin{itemize}
 \tightlist
 \item
-  for all \(t \in T: A^1(t) = B\)
+  \(\mu^*(b) < \hat{\mu}^k(b)\) for each \(b \in B\) such that
+  \(\hat{\mu}^k(b) \in T\)
 \item
-  \(B^1(t_1) = b_2, \hat{P}^1(t_2) = b_1, \hat{P}^1(t_3) = b_1\)
-\item
-  \(P^1(b_1) = \{t_2, t_3\}\) and \(P^1(b_2) = \{t_1\}\) and
-  \(P^1(b_3) = \emptyset\)
-\item
-  \(\hat{\mu}^1(b_1) = t_3\) and \(\hat{\mu}^1(b_2) = t_1\) and
-  \(\hat{\mu}^1(b_3) = \emptyset\)
+  \(\mu^*(b) = b\) for each \(b \in B\) such that
+  \(\hat{\mu}^k(b) = \emptyset\)
 \end{itemize}
 
-\textbf{Step 2:}
+By Lemma 3 for each \(t \in T\), there is at most 1 \(b\) such that
+\(\hat{\mu}^k(b) = t\).
+
+Case 1: \(\hat{\mu}^*(t) = b\) if \(b = (\hat{\mu}^k)^-1(t)\)
+
+Case 2: \(\mu^*(t) = t\) otherwise
+
+    So, we have constructed a matching which leads to Lemma 4:
+
+\subsubsection{Lemma 4}\label{lemma-4}
+
+The matching \(\mu^*: (T \cup B) \rightarrow (T \cup B)\) is stable.
+
+\textbf{Proof:}
+
+Need to show two things: 1. Matching is indivudally rations:
+\(\mu^*(i) \succeq_i i\) 2. There is no blocking pair \((t,b)\).
+
+Step 1 for the t agent:
+
+\textbf{(1.t)}
+
+It suffices to show that for each \(t \in T\) that is matched
+\(\mu^*(b) \in B\) there is \(\mu^*(t) \in A(t)\)
+
+\(\mu^*(t) = b \implies \hat{P}^k(t) = b \implies b \in A^k(t) \subset A(t)\)
+
+Step 1 for the b agent:
+
+\textbf{(1.b)}
+
+It suffices to show that for each \(b \in B\) with \(\mu^*(b) \in T\),
+\(\mu^*(b) \in A(b)\)
+
+Notice by construction that
+\(\mu^*(b) = \hat{\mu}^k(b) \in P^k(b) \subset A(b)\)
+
+    \textbf{(2)}
+
+Fix (t, b) and suppose contra hypothesis that (t,b) blocks \(\mu^*\)
+
+This means \(b \succeq_t \mu^*(t)\) and \(t \succeq_b \mu^*(b)\).
+
+There exists some \(k < K\) such that \(\hat{P}^k(t) = b\) and
+\(\hat{\mu}^k(b) \ne t\).
+
+then:
+
+\(\mu^*(b) = \mu^*(b) \succeq_b \mu^k(b) \succeq_b t\) This follows from
+Lemma 2.
+
+This implies \(\mu^*(b) \succeq_b t\) which contradicts that \(t\) forms
+a blocking pair.
+
+    Algorithm tells us how to construct a stable match. Presuming that
+designer knows all inputs and preferences. Program a computer to make
+all those matches. However, we will talk later about when designer does
+not know preferences. But, now, we assume so, and have shown this is
+possible to construct.
+
+No one has incentive to deviate. Or we hope. We want them to be
+normatively desirable. Are they good for society? There are lots of
+different criteria of how we understand normatively desirable matches.
+
+    \subsection{Are Stable Matchings Normatively
+desirable?}\label{are-stable-matchings-normatively-desirable}
 
 \begin{itemize}
-\tightlist
 \item
-  \(A^2(t_1) = B\) and \(A^2(t_2) = \{b_2, b_3\}\) and \(A^2(t_3) = B\)
+  Criteria 1: \emph{Are stable matches Pareto efficient?}
 \item
-  \(\hat{P}^2(t_1) = b_2\) and \(\hat{P}^2(t_2) = b_2\) and
-  \(\hat{P}^2(t_3) = b_1\)
+  Stable matches tend to be pareto efficient (hw problem to show)
 \item
-  \(P^2(b_1) = \{t_3\}\) and \(P^2(b_2) = \{t_1, t_2\}\) and
-  \(P^3(b_3) = \emptyset\)
+  Pareto efficient is a state of allocation of resources from which it
+  is impossible to reallocate so as to make any one individual or
+  preference criterion better off without making at least one individual
+  or preference criterion worse off.
 \item
-  \(\hat{\mu}^2(b_1) = t_3\) and \(\hat{\mu}^2(b_2) = t_2\) and
-  \(\hat{\mu}^2(b_3) = \emptyset\)
+  Criteria 2: \emph{selecting the best stable matching among all the
+  stable matchings possible}
 \end{itemize}
 
-\textbf{Step 3:}
+\textbf{Example}: (from last class)
 
-\begin{itemize}
+    Imagine an environment with, say, two firms \(T\) and two employees
+\(B\):
+
+\(T = \{t_1, t_2\}\)
+
+\(B = \{b_1, b_2\}\)
+
+Preferences of \(T\):
+
+\(t_1: \space b_1 \succsim_{t_1} b_2 \succsim_{t_1} t_1\)
+
+\(t_2: \space b_2 \succsim_{t_2} b_1 \succsim_{t_2} t_2\)
+
+Preferences of \(B\):
+
+\(b_1: \space t_2 \succsim_{b_1} t_1 \succsim_{b_1} b_1\)
+
+\(b_2: \space t_1 \succsim_{b_2} t_2 \succsim_{b_2} b_2\)
+
+    Recall that there were two stable matches:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
 \tightlist
 \item
-  \(A^3(t_1) = \{b_1, b_3\}\) and \(A^3(t_2) = \{b_2, b_3\}\) and
-  \(A^3(t_3) = B\)
-\item
-  \(\hat{P}^3(t_1) = b_1\) and \(\hat{P}^3(t_2) = b_2\) and
-  \(\hat{P}^3(t_3) = b_1\)
-\item
-  \(P^3(b_1) = \{t_1, t_3\}\) and \(P^3(b_2) = \{t_2\}\) and
-  \(P^3(b_3) = \emptyset\)
-\item
-  \(\hat{\mu}^3(b_1) = t_3\) and \(\hat{\mu}^3(b_2) = t_2\) and
-  \(\hat{\mu}^3(b_3) = \emptyset\)
-\end{itemize}
+  All B agents get best match (B-proposing DA algorithm)
+\end{enumerate}
 
-\textbf{Step 4:}
+\(\mu(t_1) = b_2\) and \(\mu(t_2) = b_1\)
 
-\begin{itemize}
+\(\mu(b_2) = t_1\) and \(\mu(b_1) = t_2\)
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
 \tightlist
 \item
-  \(A^4(t_1) = \{b_1, b_3\}\) and \(A^4(t_2) = \{b_2, b_3\}\) and
-  \(A^4(t_3) = \{b_2, b_3\}\)
-\item
-  \(\hat{P}^4(t_1) = b_1\) and \(\hat{P}^4(t_2) = b_2\) and
-  \(\hat{P}^4(t_3) = b_2\)
-\item
-  \(P^4(b_1) = \{t_1\}\) and \(P^4(b_2) = \{t_2, t_3\}\) and
-  \(P^4(b_3) = \emptyset\)
-\item
-  \(\hat{\mu}^4(b_1) = t_1\) and \(\hat{\mu}^4(b_2) = t_2\) and
-  \(\hat{\mu}^4(b_3) = \emptyset\)
-\end{itemize}
+  All T agents get best match. (T-proposing DA algorithm)
+\end{enumerate}
 
-\textbf{Step 5:}
+\(\mu(t_1) = b_1\) and \(\mu(t_2) = b_2\)
 
-\begin{itemize}
+\(\mu(b_1) = t_1\) and \(\mu(b_2) = t_2\)
+
+    \subsection{Side of the Market
+Preferences}\label{side-of-the-market-preferences}
+
+If I think about the \(I\) proposing DA algorithm:
+
+\(\mu_{ID}: (T \cup B) \rightarrow (T \cup B)\)
+
+Introduce an order: \(\ge_I\) such that \(\mu \ge_I \mu'\) if, for each
+\(i \in I: \mu(i) \succeq_i \mu'(i)\)
+
+Write:
+
+\(\mu >_I \mu'\) if \(\mu \ge_I \mu'\) and there exists some \(i \in I\)
+such that \(\mu(i) \succ_i \mu'(i)\)
+
+I will call \(\mu:(T \cup B) \rightarrow (T \cup B)\) an
+\textbf{I-Optimal} stable match if:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \(A^5(t_1) = \{b_1, b_3\}\) and \(A^5(t_2) = \{b_2, b_3\}\) and
-  \(A^5(t_3) = \{b_3\}\)
+  \(\mu\) is stable.
 \item
-  \(\hat{P}^5(t_1) = b_1\) and \(\hat{P}^5(t_2) = b_2\) and
-  \(\hat{P}^5(t_3) = b_3\)
-\item
-  \(P^5(b_1) = \{t_1\}\) and \(P^5(b_2) = \{t_2\}\) and
-  \(P^5(b_3) = \{t_3\}\)
-\item
-  \(\hat{\mu}^5(b_1) = t_1\) and \(\hat{\mu}^5(b_2) = t_2\) and
-  \(\hat{\mu}^5(b_3) = t_3\).
-\end{itemize}
+  \(\mu \ge_I \mu'\) for all other stable matches \(\mu\).
+\end{enumerate}
 
-You can check this is exactly what was completed last class without the
-Differed Acceptance Algorithm.
+    \subsubsection{Proposition (Gale - Shapley
+1962)}\label{proposition-gale---shapley-1962}
 
-Since it terminates at \(k+1\) technically there is a \textbf{Step 6}
-where everything in \textbf{5} is repeated.
+Suppose preferences are strict. Then for each \(I \in \{T, B\}\):
+
+\(\mu_{ID}: (T \cup B) \rightarrow (T \cup B)\) is an I-optimal stable
+match.
+
+The proof and example will be in the next class.
 
 
     % Add a bibliography block to the postdoc
