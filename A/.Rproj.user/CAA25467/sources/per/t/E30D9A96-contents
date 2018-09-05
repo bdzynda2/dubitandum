@@ -108,7 +108,11 @@ $$C(B_3) = \{x_3\}$$
 
 But when $B$ contains all three options: $C(B) = \{x_2\}$. So, there is a set containing ${x_2, x_3}$ where $x_3$ is not choosen, in spite of $C(B_2)$ above. Therefore, the weak axiom is violated. This is not a rationalizable preference. 
 
-(c) ########################!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!################
+
+_(c) For any nonempty set $B \in X$ Carol chooses the same thing as Ann, unless $x_1 \in B$ in which case Carol chooses nothing. Is this a rationalizable choice rule?
+
+Let $B = \{x_1,x_2,x_3\}$. Then $C(B) = \emptyset$. But, this can then not be rationalizable. By the corollary, $C(B)$ must be nonempy for all nonempty $B$. $B$ is nonempty. Therefore, the preferences cannot be rationalizable by the corollary. 
+
 
 ## Problem 3.4
 
