@@ -145,7 +145,7 @@ __Part 2__: want to show that $\lambda_T$ is individually rational since both $\
 + Suppose there is a blocking pair $(t^*, b^*)$ that blocks $\lambda_T$. 
 + Since $\mu$ is stable, it cannot be that $\lambda_T(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
 + and since $\mu'$ is stable, it cannot be that $\lambda_T(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$
-+ Hence, either (a) $\lambda(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$ or (b) $\lambda(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
++ Hence, either (a) $\lambda_T(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$ or (b) $\lambda_T(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
 
 
 If (a):

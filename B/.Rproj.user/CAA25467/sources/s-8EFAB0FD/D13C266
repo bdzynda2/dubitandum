@@ -5,16 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "305477467",
     "id" : "D13C266",
-    "lastKnownWriteTime" : 1536271580,
-    "last_content_update" : 1536271580841,
+    "lastKnownWriteTime" : 1536273580,
+    "last_content_update" : 1536273580003,
     "path" : "~/Fall-2018/dubitandum/B/Lecture6.Rmd",
     "project_path" : "Lecture6.Rmd",
     "properties" : {
-        "cursorPosition" : "29,33",
+        "cursorPosition" : "147,148",
         "marks" : "<:29,21\n>:29,21",
-        "scrollLine" : "8"
+        "scrollLine" : "131"
     },
     "relative_order" : 6,
     "source_on_save" : false,
