@@ -154,7 +154,7 @@ Then, if $\mu : (T \cup B) \rightarrow (T \cup B)$ is stable, then:
 $$|\{t \in T: \mu(t) \ne t\}| \ge k$$
 
 
-Again, in English the set of $t$ agents matched as to contain at least $k$ elements. For example, say that there are 20 $t$'s and 30 $b$'s. If 10 $b$'s find all $t$'s acceptable and vice versa, then the number of stable matchings is at least 10. 
+Again, in English the set of $t$ agents matched has to contain at least $k$ elements. For example, say that there are 20 $t$'s and 30 $b$'s. If 10 $b$'s find all $t$'s acceptable and vice versa, then the number of stable matchings is at least 10. 
 
 
 ### Proof: 
@@ -270,10 +270,10 @@ __Case 3:__ $\mu(t_1) = b_3 \implies \mu(b_1) \ne t_1$
 
 Now:
 
-$$t_1 \succ_{b_1} \mu(b_1)$$
+$$t_1 \succ_{b_1} \mu(b_1) = t_2$$
 $$b_1 \succ_{t_1} \mu(t_1) = b_3$$
 
-Hence there is a blocking pair. If matching is table, then $\mu(t_1) \ne b_3$. 
+Hence there is a blocking pair. If matching is stable, then $\mu(t_1) \ne b_3$. 
 
 
 

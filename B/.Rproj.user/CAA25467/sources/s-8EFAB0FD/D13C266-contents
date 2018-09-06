@@ -1,0 +1,216 @@
+---
+title: "Lecture 6"
+author: "David Zynda"
+date: "September 6, 2018"
+output: pdf_document
+---
+
+## Review from last lecture
+
+Order $\ge_I$ for $I \in \{T, B\}$
+
+$\mu \ge_i \mu'$ if for each $i: \mu(i) \succsim_i \mu'(i)$
+
+$\mu >_i \mu'$ if $\mu \ge_I \mu'$ and there exists an $i \in I$ such that $\mu(i) \succ_i \mu'(i)$
+
+
+
+
+## Theorem (Knuth) 
+
+_Suppose preferences are strict. If $\mu$ and $\mu'$ are stable then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$_
+
+
+__Proof__: Suppos $\mu >_T \mu':$ to show:
+
+(1) for each $b \in B$, $\mu'(b) \succsim_b \mu(b)$
+(2) for some $b \in B$, $\mu'(b) \succ_b \mu(b)$
+
+
+To show (1): Suppose not, i.e. there is some $b \in B$ such that $\mu(b) \succ_b \mu'(b)$
+
++ In other words will construct a blocking pair to $\mu'$ with $b$, contradicting stability. 
++ Notice: $\mu(b) \in T$ since $\mu'$ is stable, $\mu'(b) \succsim_b b$ - that is it is individually rational.
++ Transitivity: $\mu(b) \succ_b \mu'(b) \succsim_b b$ this implies that $\mu(b) \in T$
++ Let $t \in \mu(b)$. Since $\mu(b) \neq \mu'(b) \implies \mu(t) \neq \mu'(t)$ and since preferences are strict and $\mu >_T \mu' \implies \mu(t) \succ_t \mu'(t)$
++ Then $(t,b)$ blocks $\mu'$ contradicting that $\mu'$ is stable
+
+
+
+To show (2):
+
+We know for all $b \in B, \mu'(b) \succsim_b \mu(b)$ by (1). 
+
+Also, we know that $\exists t : \mu(t) \succ_t \mu'(t)$
+
+Now notice that because $\mu(t) \neq \mu'(t)$ one of these matchinigs, maybe both, $t$ has to be matched to some $b$ agent. And that $b$ agent cannot have the same match over $\mu$ and $\mu'$. 
+
+So, this implies that $\exists b : \mu(b) \neq \mu'(b)$. 
+
+
+We know that $\mu'(b) \succsim_b \mu(b)$ by (1). Then by strict preferences, we have: $\mu'(b) \succ_b \mu(b)$. 
+
+### Idea 
+
+
+Fix two matches $\mu$ and $\mu'$ where:
+
+$$\mu: (T \cup B) \rightarrow (T \cup B)$$
+
+$$\mu': (T \cup B) \rightarrow (T \cup B)$$
+
+Define __T-Join__ or T-sup. 
+
+$$\lambda_T: (T \cup B) \rightarrow (T \cup B)$$
+$$\lambda_T(t) = \begin{cases} 
+      \mu(t) & \mu(t) \succsim_t \mu'(t) \\
+      \mu'(t) & \mu'(t) \succ_t \mu(t) 
+   \end{cases}$$
+   
+$$\lambda_T(b) = \begin{cases} 
+      \mu(b) & \mu'(b) \succsim_t \mu(b) \\
+      \mu'(b) & \mu(b) \succ_t \mu'(b) 
+   \end{cases}$$
+
+
+## Proposition
+
+_Suppose preferences are strict and $\mu: (T \cup B) \rightarrow (T \cup B)$ and $\mu': (T \cup B) \rightarrow (T \cup B)$ are stable. Then the T-Join of $\mu$ and $\mu'$ is a stable match. Moreover:_
+
+(1) $\lambda_T \ge_T \mu$ and $\lambda_T \ge \mu$
+(2) $\mu \ge_B \lambda_T$ and $\mu' \ge_B \lambda_T$
+
+
+## Lemma 1
+
+Suppose preferences are strict and $\mu$ and $\mu'$ are stable. Then, $\lambda_T(t) = \mu(t)$ if and only if $\lambda_T(\lambda_T(t)) = \mu(\lambda_T(t))$. This is the $b$ agent ($\lambda_T(t)$) point right back at the $t$ who it was assigned to by $\lambda_T$
+
+__Proof__:
+
+Part 1: Suppose that $\lambda_T(t) = \mu(t)$. Now this fact tells us that $\mu(t) \succsim_t \mu'(t)$ by definition of $\lambda_T$. So, one possibility is that they are indifferent. Notice, that if this is the case since preferences are strict, we have to have that $\mu(t) = \mu'(t)$ because preferences are strict. Let's call that match $b$. 
+
+Then $\mu'(b) = \mu(b) = \lambda_T(b) = t$. 
+
+
+
+Then, the case we have to worry about is: $\mu(t) \succ_t \mu'(t)$
+
+Suppose $\lambda_T(t) = \mu(t) = b$. Then: $b \succ_T \mu'(t) \implies \mu'(t) \neq b$ Then, this implies that $\mu(b) = t \neq \mu'(b)$
+
+By strict preferences: Either
+
+(a) $t = \mu(b) \succ_b \mu'(b)$ or
+(b) $\mu'(b) \succ_b \mu(b) = t$. 
+
+If (a) holds the we also have:
+
++ $t \succ_b \mu'(b)$ 
++ $b \succ_t \mu'(t)$ and then both of these would form a blocking pair, contradicting that $\mu'$ is stable. 
+
+If (b) holds, then:
+
++ $\mu'(b) \succ_b \mu(b) \implies \lambda_T(b) = \mu(b)$
+
+
+
+Part 2: We want that $\lambda_T(b) = \mu(b) \implies \lambda_T(\lambda_T(b)) = \mu(\lambda_T(b))$
+
+Notice that is just same argument before (above) so we are done. 
+
+
+
+
+## Proof of Proposition
+
+Want to show:
+
+(1) $\lambda_T$ is a match
+(2) $\lambda_T$ is stable. 
+
+
+__Part 1__: want to show:  
+
+$$\lambda_T(t) = \mu(t) = b \iff \lambda_T(b) = \mu(b) = t$$ 
+
+$$\lambda_T(t) = \mu'(t) = b \iff \lambda_T(b) = \mu'(b) = t$$
+
+And this is just Lemma 1. 
+
+
+
+
+__Part 2__: want to show that $\lambda_T$ is individually rational since both $\mu$ and $\mu'$ are individually rational. In other words, show that there is no blocking. 
+
+
++ Suppose there is a blocking pair $(t^*, b^*)$ that blocks $\lambda_T$. 
++ Since $\mu$ is stable, it cannot be that $\lambda_T(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
++ and since $\mu'$ is stable, it cannot be that $\lambda_T(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$
++ Hence, either (a) $\lambda(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$ or (b) $\lambda(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
+
+
+If (a):
+
++ $b^* \succ_{t^*} \lambda_T(t^*) = \mu(t^*) \succsim_{t^*} \mu'(t^*)$
++ then $t^* \succ_{b^*} \lambda_T(b^*) = \mu'(b^*)$
++ This implies that $(t^* , b^*)$ blcoks $\mu'$ and this cannot be. 
+
+
+If (b):
+
++ $b^* \succ_{t^*} \lambda_T(t^*) = \mu'(t^*) \succsim_{t^*} \mu(t^*)$
++ $t^* \succ_{b^*} \lambda_T(b^*) = \mu(b^*)$
++ This implies that $(t^*, b^*)$ blocks $\mu$ and this cannot be. 
+
+
+
+
+## Theorem (Rural Hospital Theorem)
+
+_Suppose preferences are strict. If $\mu$ and $\mu'$ are stable, then the set of agents:_
+
+$$\{ i \in T \cup B: \mu(i) = i\} = \{i \in T \cup B: \mu'(i) = i\}$$
+
+
+
+
+__Proof__
+
+Define: $I[\mu] = \{i \in I :\mu(i) \ne i$ as matched under $\mu$
+
+$$| T[\mu] | = | B[\mu] |$$
+
+Fix $\mu$ as stable. It suffices to show that:
+
+$$(a): T[\mu] \subseteq T[\mu_{TD}]$$
+$$(b): B[\mu_{TD}] \subseteq B[\mu]$$
+
+Where $||$ implies cardinality.
+
+
+If the above two statements (a) and (b) are true:
+
+$$|T[\mu]| \le |T[\mu_{TD}]| = |B[\mu_{TD}]| \le |B[\mu]| = |T[\mu]| \implies |T[\mu]| = |B[\mu]| = |B[\mu_{TD}]|$$
+
+
+Since $T[\mu] \subseteq T[\mu_{TD}]$ and $|T[\mu]| = |T[\mu_{TD}]|$ we can conclude that $|B[\mu]| = |B[\mu_{TD}]|$
+
+
+
+To show (a): $T[\mu] \subseteq T[\mu{TD}]$
+
++ Fix $t \in T[\mu] \implies \mu(t) \ne t$
++ $\mu_{TD}(t) \succsim_t \mu(t) \succsim_t t$ by IR or $\mu$. And since preferences are strict, we must have: $\mu(t) \succ_t t$ as $\mu(t) \ne t$ and strict preferences. 
++ Hence $\mu_{TD} \succ_t t \implies \mu_{TD}(t) \ne t$ and $t \in T[\mu_{TD}]$
+
+
+
+To show (b): $B[\mu_{TD}] \subseteq B[\mu]$
+
++ Fix $b \in B[\mu_{TD}]$
++ $\mu_{TD}(b) \ne b$
++ $\mu(b) \succsim_b \mu_{TD}(b) \succsim_b b$ Now, it must be the case that $\mu_{TD}(b) \succ_b b$ since $\mu_{TD}(b) \ne b$ and strict preferences
++ Above implies that $\mu(b) \succ_b b \implies \mu(b) \ne b \implies b \in B[\mu]$
+
+Done
+
+

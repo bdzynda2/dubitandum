@@ -11,14 +11,14 @@ Order $\ge_I$ for $I \in \{T, B\}$
 
 $\mu \ge_i \mu'$ if for each $i: \mu(i) \succsim_i \mu'(i)$
 
-$\mu >_\mu'$ if $\mu \ge_I \mu'$ and there exists an $i \in I$ such that $\mu(i) \succ_i \mu'(i)$
+$\mu >_i \mu'$ if $\mu \ge_I \mu'$ and there exists an $i \in I$ such that $\mu(i) \succ_i \mu'(i)$
 
 
 
 
 ## Theorem (Knuth) 
 
-_Suppose preferences are strict. If $\mu and \mu'$ are stable then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$_
+_Suppose preferences are strict. If $\mu$ and $\mu'$ are stable then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$_
 
 
 __Proof__: Suppos $\mu >_T \mu':$ to show:
@@ -87,7 +87,7 @@ Suppose preferences are strict and $\mu$ and $\mu'$ are stable. Then, $\lambda_T
 
 __Proof__:
 
-Part 1: Suppose that $\lambda_T(t) = \mu(t)$. Now this fact telss us that $\mu(t) \succsim_t \mu'(t)$ by definition of $\lambda_T$. So, one possibility is that they are indifferent. Notice, that if this is the case since preferences are strict, we have to have that $\mu(t) = \mu'(t)$ because preferences are strict. Let's call that match $b$. 
+Part 1: Suppose that $\lambda_T(t) = \mu(t)$. Now this fact tells us that $\mu(t) \succsim_t \mu'(t)$ by definition of $\lambda_T$. So, one possibility is that they are indifferent. Notice, that if this is the case since preferences are strict, we have to have that $\mu(t) = \mu'(t)$ because preferences are strict. Let's call that match $b$. 
 
 Then $\mu'(b) = \mu(b) = \lambda_T(b) = t$. 
 

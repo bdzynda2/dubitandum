@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 _In any one-to-one matching environment there exists a stable matching $\mu$._ 
 
-The proof is constructive such that it makes a stable matching $\mu$ such that it employs the T-proposal Deferred Acceptance Algorithm. 
+The proof is constructive such that it makes a stable matching $\mu$ as it employs the T-proposal Deferred Acceptance Algorithm. 
 
 __Sketch of Algorithm__
 
@@ -26,7 +26,7 @@ Algorithm will terminate when: $k = k+1$
 
 
 
-Fix $X \subset J$ where $J$ is a set of agents. Write $\max_i X = \{j \in X: j \succsim_i j' \forall j' \in X\}$
+Fix $X \subset J$ where $J$ is a set of agents. Write $\max_i X = \{j \in X| j \succsim_i j' :\forall j' \in X\}$
 
 If $X = \emptyset$ then $\max_i X = \emptyset$
 
@@ -37,10 +37,17 @@ Formally, the Algorithm can be written as follows:
 
 __Round 1:__
 
-$A^1(t) = A(t)$ T ask what agents are acceptable to me in round 1?
+$$A^1(t) = A(t)$$ 
+T ask what agents are acceptable to me in round 1?
  
  
- $\hat{P}^1 : T  \rightarrow B \cup \{\emptyset\} : \hat{P}^1 \in \max_t A^1(t)$ I want to make proposal to best B agent. T is matched with best B agent or keeps to himself (empty set). 
+ 
+ 
+$$\hat{P}^1 : T  \rightarrow B \cup \{\emptyset\} : \hat{P}^1 \in \max_t A^1(t)$$ 
+
+I want to make proposal to best B agent. T is matched with best B agent or keeps to himself (empty set). 
+
+
 
 If $A^1(t) \ne \emptyset$ choose the best B agent. If $A^1(t) = \emptyset$, choose $\emptyset$
 
@@ -59,7 +66,7 @@ The above means t has made a proposal to me and that t is acceptable to me.
 Now, $\hat{\mu}^1: B \rightarrow T \cup \{\emptyset\}$ such that $\hat{\mu}^1 \in \max_b P^1(b)$
 
 
-If $P^1(b) = \emptyset$ then $\hat{\mu}^1(b) = \emptyset$. That is if none are acceptable, I hold on to mysel
+If $P^1(b) = \emptyset$ then $\hat{\mu}^1(b) = \emptyset$. That is if none are acceptable, I hold on to myself
 
 
 __Round k+1__:
@@ -75,7 +82,7 @@ Inductively, I have defined:
 
 
 
-$A^{k+1}(t) =$
+$A^{k+1}(t) =$ (1) or (2) provided the following conditions:
 
 __(1)__   $A^k(t)$ if $\hat{\mu}^k(\hat{P}^k) = t$ meaning t proposed at k to $b = \hat{P}^k(t)$ and b accepted t at $k$.
 
@@ -106,7 +113,7 @@ $$P^{k+1}(b) = (\hat{P}^{k+1})^{-1} (\{b\}) \cap A(b)$$
 
 Which is equivalent to:
 
-$$\{t \in T: \hat{P}^{k+1}(t) = b: t \in A(b)$$
+$$\{t \in T: \hat{P}^{k+1}(t) = b: t \in A(b)\}$$
 
 
 
@@ -142,28 +149,21 @@ __Proof__
 
 k is when the acceptable offer stops for every t agent. 
 
-For each $t \in T$, $(A^k(t): k = 1,2,...)$ is decreasing. 
+For each $t \in T$, $(A^k(t): k = 1,2,...)$ is decreasing, i.e., $..., \subseteq A^3(t) \subseteq A^2(t) \subseteq A^1(t)$
 
 
-$..., \subseteq A^3(t) \subseteq A^2(t) \subseteq A^1(t)$
-
-
-$\exists K: \forall t \in T, A^k(t) = A^K(t) \forall k \ge K$
-
-
-
-By definition, $\hat{P}^k(t) = \hat{P}^k(t)$ for all $t \in T$ and $k \ge K$
-
-
-This implies that $\hat{P}^k(b) = \hat{P}^k(b)$ for all $b \in B$ and $k \ge K$
-
-
-Which implies that $\hat{\mu}^k(b) = \hat{\mu}^K(b)$ for all $b \in B$ and $k \ge K$. 
+$$\exists K: \forall t \in T, A^k(t) = A^K(t)$$ 
+$$\forall k \ge K$$
 
 
 
-Show that the algorithm terminates. But does it give us a stable match?
+By definition, $\hat{P}^k(t) = \hat{P}^K(t)$ for all $t \in T$ and $k \ge K$. This implies that $P^k(b) = P^K(b)$ for all $b \in B$ and $k \ge K$. Which implies that $\hat{\mu}^k(b) = \hat{\mu}^K(b)$ for all $b \in B$ and $k \ge K$. 
 
+
+
+This shows that the algorithm terminates. But does it give us a stable match? It is indeed stable by nature of the algorithm. Assuming that each $T$ is a man $m$ and each $B$ is a woman $w$ par Roth and Sotomayor, then:
+
+> To see that the matching $\mu$ produced by the algorithm is stable, suppose some man $m$ and woman $w$ are not married to each other at $\mu$ but $m$ prefers $w$ to his own match at $\mu$. Then, woman $w$ must be acceptable to man $m$, and so he must have proposed to her before proposing to his current mate (or before being rejected by all of the women he finds acceptable). Since he was not engaged to $w$ when the algorithm stopped, he must have been rejected by her in favor of someone she like at least as well. Therefore, $w$ is matched at $\mu$ to a man whom she likes at least as well as man $m$, since preferences are transitive (and hence acyclic), and so $m$ and $w$ do not block the matching $\mu$. Since the matching is not blocked by any individual or by any pair, it is stable. 
 
 
 ### Example
