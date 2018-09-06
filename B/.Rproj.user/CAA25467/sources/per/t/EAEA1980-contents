@@ -1,0 +1,93 @@
+---
+title: "Lecture 1"
+author: "David Zynda"
+date: "August 21, 2018"
+output: pdf_document
+---
+
+## One-to-One Matching Markets
+
+"A firm is matched to exactly one worker for the position"
+
+### Beginning Notation and Concept
+
+Let:
+
+$$T = \{t_1, ..., t_{|T|}\}$$
+$$B = \{b_1, ..., b_{|B|}\}$$
+
+Where $|T| \ne |B|$ in all cases. Consider an agent $i \in T \cup B$.  This agent is in either one side of the market or the other. That is $I \in \{T, B\}$ $J$ will be on the other side of the market. So, $J \in \{T, B\} \setminus \{I\}$
+
+Agents $i \in I$ only care to match with agents inside $J$. 
+
+### Preferences of Agents
+
+Preferences are represented as a binary relation $\succsim_i$ on the set $J \cup \{i\}$ (this set says that agent $i \in I$ prefers the $J$ side of the market or to keep to himself). 
+
+$j \succsim_i k$ means $i$ weakly prefers $j$ to $k$ where $j, k \in J$. 
+
+$j \succsim_i i$ means $i$ weakly prefers $j$ to remaining alone. 
+
+
+
+### Two Fundamental Assumptions:
+
+(1) Preferences are complete
+
+(2) Preferences are transitive
+
+
+Completeness requires either $j \succsim_i k$ or $k \succsim_i j$
+
+Transitivity requires that if $j \succsim_i k$ and $k \succsim_i l$ then $j \succsim_i l$
+
+
+In the event that $j \succsim_ k$ and $\lnot (k \succsim_i j)$, the $j$ is strictly preferred to $k$.
+
+
+
+### Some Implicit Assumptions
+
+(1) Agents only care about "name" of agents on other side of the market. We can account for this by re-labeling and thinking of names of agents as being associated with different prices or wages. 
+
+This account does rule out that you care about match of other agents in the market (externalities matching). We assume that agents don't care about where other agents end up. 
+
+(2) Agents only rank a single agent in other side of market and not groups of agents. This is the case only in 1-to-1 matching. In short, each $T$ is matched to one $B$ and one $B$ is matched to one $T$. 
+
+
+### The Matching Map
+
+
+A matching is a map (function) $\mu : (T \cup B) \rightarrow (T \cup B)$ such that for each:
+
+
+$$I \in \{T, B\} \\ B \in \{T,B\} \setminus \{I\}$$
+
+the following hold:
+
+1.  for each $i \in I: \mu(i) \in J \cup \{i\}$
+
+2.  if $\mu(i) = j \in J$ then $\mu(j) = i \in I$
+
+
+A bit less dense, the first point says that for each $t \in T$, $\mu(t) \in B \cup \{t\}$ or for each $b \in B$, $\mu(b) \in T \cup \{b\}$
+
+
+Likewise, (2) can be expressed  $\mu(t) = b$ if and only if $\mu(b) = t$. 
+
+
+We write $t$ is matched if $\mu(t) \ne t$. That is, your are matched if you are not with yourself. 
+
+__Remark__: Matching $\mu$ is a one-to-one (injective) function. 
+
+_Proof_: Suppose $\exists i_1, i_2 \in I$ such that $\mu(i_1) = \mu(i_2)$. That is, two agents matched to the same $j$. Then, $i_1 = i_2$ since this is one-to-one matching. 
+
+
+
+Lastly, matching is of order 2. That is:
+
+$$\mu^2(i) \equiv \mu(\mu(i)) = i$$
+
+Fix $\mu(i) = j$. Then since if $\mu(i) = j \in J$ then $\mu(j) = i \in I$:
+
+$$\mu(\mu(i)) = \mu(j) = i$$
