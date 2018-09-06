@@ -21,7 +21,7 @@ $\mu >_i \mu'$ if $\mu \ge_I \mu'$ and there exists an $i \in I$ such that $\mu(
 _Suppose preferences are strict. If $\mu$ and $\mu'$ are stable then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$_
 
 
-__Proof__: Suppos $\mu >_T \mu':$ to show:
+__Proof__: Suppose $\mu >_T \mu':$ to show:
 
 (1) for each $b \in B$, $\mu'(b) \succsim_b \mu(b)$
 (2) for some $b \in B$, $\mu'(b) \succ_b \mu(b)$
