@@ -27,7 +27,7 @@ __Proof__: Suppose $\mu >_T \mu':$ to show:
 (2) for some $b \in B$, $\mu'(b) \succ_b \mu(b)$
 
 
-To show (1): Suppose not, i.e. there is some $b \in B$ such that $\mu(b) \succ_b \mu'(b)$
+To show (1): Suppose the contrary, i.e. there is some $b \in B$ such that $\mu(b) \succ_b \mu'(b)$
 
 + In other words will construct a blocking pair to $\mu'$ with $b$, contradicting stability. 
 + Notice: $\mu(b) \in T$ since $\mu'$ is stable, $\mu'(b) \succsim_b b$ - that is it is individually rational.
