@@ -31,7 +31,7 @@ __Definition__: $\mu^*:(T \cup B) \rightarrow (T \cup B)$ is _I-Optimal Stable m
 2. $\mu^* \ge_I \mu$ for all stable $\mu$
 
 
-$\mu^* >_I \mu$ if $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succsim_i \mu(i)$
+$\mu^* >_I \mu$ if $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succ_i \mu(i)$
 
 
 
