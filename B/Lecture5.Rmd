@@ -1,0 +1,203 @@
+---
+title: "Lecture 5"
+author: "David Zynda"
+date: "September 4, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Preliminary Review from Last Lecture
+
+Consider environment:
+$$\epsilon = ( T \cup B, (\succsim)_{i \in T \cup B} )$$
+
+And Matching:
+$$\mu: (T \cup B) \rightarrow (T \cup B)$$
+
+
+__DA Algorithm__ (T-propsal)
+
++ $k$ proposals $\hat{P}^k: T \rightarrow B \cup \{\emptyset\}$
++ $k$ tentative accept $\hat{\mu}^k: B \rightarrow T \cup \{\emptyset\}$
++ $\hat{\mu}^k = \hat{\mu}^{k+1}$
+
+
+__Definition__: $\mu^*:(T \cup B) \rightarrow (T \cup B)$ is _I-Optimal Stable match_ if 
+
+1. $\mu^*$ is stable
+2. $\mu^* \ge_I \mu$ for all stable $\mu$
+
+
+$\mu^* >_I \mu$ if $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succ_i \mu(i)$
+
+
+
+
+### Proposition:
+
+_Suppose preferences are strict. Then for each $I \in \{T,B\}$ the match $\mu^*_{ID}:(T \cup B) \rightarrow (T \cup B)$ is an I-optimal stable match._
+
+
+
+__Definition__: Say $b$ is acheivable for $t$ if there exists some stable match $\mu$ with $\mu(b) = t$. 
+
+
+
+## Lemma 1: 
+
+_In the T-proposal DA algorithm, the following holds for each $k=1,2,...$ : If $\hat{P}^k(t) = b$ and $b$ is acheivable for $t$, then $\hat{\mu}^k(b) = t$_
+
+
+
+
+__Proof__:
+
+
+Suppose the result is not true. Then there exists some $k$ such that:
+
+1. for each $l < k$ and each $t \in T$: if $\hat{P}^l(t)=b$ and $b$ is acheivable for $t$, then $\hat{\mu}^l(b) = t$
+2. There is some $t^* \in T$ such that $\hat{P}^k(t^*) = b^*$, $b^*$ is acheivable for $t^*$ and $\hat{\mu}^k (b^*) \ne t^*$
+
+There is stable matching $\mu:(T \cup B) \rightarrow (T \cup B)$ with $\mu(t^*) = b^*$. 
+
+Now, $\hat{\mu}^k(b^*) \ne t^* \implies t^{**} = \hat{\mu}^k(b^*)$ and $t^* \ne t^{**}$
+
+
+Observe $\mu(t^{**}) \ne b^*$
+
+
+Will show: $(t^{**}, b^*)$ blocks $\mu$, contradicting the fact that $\mu$ is stable. 
+
+$$t^{**} \succ_{b^*} \mu(b^*)$$
+$$b^* \succsim_{t^{**}} \mu(t^{**})$$
+
+
+__First__
+
+$$t^{**} \succ_{b^*} \mu(b^*) \implies \hat{P}^k(t^{*}) = \hat{P}^k(t^{**}) = b^*$$
+
+$$\hat{\mu}^k(b^*) = t^{**} \succ_{b^*} t^* = \mu(b^*)$$
+
+
+
+
+
+__Second__
+
+$b^* \succsim_{t^{**}} \mu(t^{**})$
+
+- observe that for each $l < k$, $\mu(t^{**}) \ne \hat{p}^l(t^{**})$
+- if there were an $l \le k$ such that $\hat{P}^l(t^{**}) = \mu(t^{**}) = b^{**}$, whoever is getting that offer $b^{**}$ is acheivable to $t^{**}$ by the fact that whoever got that offer is preferable. 
+- By (1) it must be the case that whoever got that offer $\hat{\mu}^l(\hat{\mu}(t^{**})=b^{**}) = t^{**}$
+- Its got to be the case by the DA Algorithm, $\hat{P}^{l+1}(t^{**}) = \mu(t^**)$
+- Then this implies $\hat{P}^k(t^**) = \mu(t^{**})$ but this cannot be
+- We know on round $k$, $\hat{P}^k(t^**) = b^*$. We know that $\mu(t^*) = b^*$. So, that implies that $\mu(t^{**}) \ne b^*$ and $b^* \ne b^{**}$. 
+
+
+
+We know that $\hat{P}^k(t^{**}) \succsim_{t^{**}} b$ for $b \ne \{\hat{P}^l(t^{**}): l = 1,2,...,k\}$ by the DA algorithm and strict preferences. 
+
+
+
+
+On round $k$ make proposal to $b^*$: $b^* = \hat{P}^k(t^{**}) \succsim_{t^**} \mu(t^**)$
+
+
+
+
+__Proof of Proposition__ for $I = T$
+
+Fix a stable match $\mu:(T \cup B) \rightarrow (T \cup B)$. Required to prove: for each $t \in T$ agent, the $\mu_{TD}(t) \succsim_t \mu(t)$. Fix some $t \in T$ One possibility: if, for each k, $\hat{P}^k(t) \ne \mu(t)$. Does not choose best for whatever reason. In the DA Algorithm ($\mu_{TD}$)I make first offer to best, second to second best, so certainly here, $\mu_{TD}(t) \succ_t \mu(t)$
+
+
+Suppose there is some $k$ such that $\hat{P}^k(t) = \mu(t)$. By Lemma 2, $\hat{\mu}^k(\mu(t)) = t \implies \hat{P}^{k+1}(t) = \hat{P}^{k}(t)$. Then, $\hat{\mu}^{k+1}(\mu(t)) = t$
+
+
+Under the DA Algorithm, this implies $\mu_{TD}(t) = \mu(t)$ and certainly $\mu_{TD}(t) \succsim_t \mu(t)$ and we are done. Strict preferences are important for the result.
+
+
+
+### Indifference
+
+Many properties considered require that all agents have strict preferences. But, what if this isn't so? What if one agent is indifferent? In particular, can a matching be _I-Optimal_?
+
+
+## Example 1
+
+$T = \{t_1, t_2, t_3\}$ and $B = \{b_1, b_2, b_3\}$
+
+
+$$t_1: b_2 \sim b_3 \succ b_1 \succ t_1$$
+$$t_2: b_2 \succ b_1 \succ t_2 \succ b_3$$
+$$t_3: b_3 \succ b_1 \succ t_3 \succ b_2$$
+
+
+
+
+
+$$b_1: t_1 \succ t_2 \succ t_3 \succ b_1$$
+$$b_2: t_1 \succ t_2 \succ b_2 \succ t_3$$
+$$b_3: t_1 \succ t_3 \succ b_3 \succ t_2$$
+
+
+
+
+
+
+If $\mu$ is stable and $t_2$ is matched, $$\mu(t_2) \in \{b_2, b_1\}$$
+
+
+If $\mu$ is stable and $t_3$ is matched, $$\mu(t_3) \in \{b_3, b_1\}$$
+
+
+
+
+
+Suppose that $\mu(t_2) = b_1$ then $\mu(t_3) = b_3 \implies \mu(t_1) = b_2$. Then, we have stable match 1. 
+
+
+
+
+Another possibility: $\mu(t_2) = b_2$. Then $\mu(t_3) = b_3$ and $\mu(t_1) = b_1$. But the $(t_1, b_3)$ form a block, so that is not going to work. 
+
+
+So, if $\mu(t_2) = b_2$, it must be the case that $\mu(t_3) = b_1$ and $\mu(t_1) = b_3$. Then we have stable match 2. 
+
+
+
+
+In match 1, $t_3$ is pretty happy since he gets his best match. In match 2, $t_2$ gets his best. And, $b_2$ prefers match 1, but $b_3$ prefers match 2. 
+
+
+
+This can only happen because $t_1$ is indifferent. 
+
+
+So, there are no _I-Optimal_ stable matchings when one agent is indifferent. 
+
+
+
+
+
+## Theorem (Knuth)
+
+_Suppose preferences are strict. If $\mu$ and $\mu'$ are stable matches, then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$._
+
+
+
+__Definition__ Let $\mu': (T\cup B) \rightarrow (T \cup B)$ is an _I-Pessimal_ stable match is:
+
+1. $\mu'$ is stable
+2. And $\mu \ge_I \mu'$ for all other stable matches $\mu$. 
+
+
+### Corollary
+
+_Suppose preferences are strict. Then $\mu_{ID}$ is J-pessimal._ 
+
+
+
+
