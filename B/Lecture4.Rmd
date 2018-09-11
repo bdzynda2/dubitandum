@@ -136,7 +136,7 @@ If you go through the rounds the $t$ agents make new proposals. As they make new
 ### Lemma 2
 
 1. For eack $k$ and each $t \in T$, $\hat{P}^k(t) \succeq_t \hat{P}^{k+1}(t).$ 
-2. For each $k$ and each $b \in B$, $\hat{\mu}^{k+1} \succeq_b \hat{\mu}^k(b).$
+2. For each $k$ and each $b \in B$, $\hat{\mu}^{k+1}(b) \succeq_b \hat{\mu}^k(b).$
 
 
 __Proof__
@@ -208,7 +208,7 @@ __Proof:__
 
 
 Need to show two things:
-(1) Matching is indivudally rational: $\mu^*(i) \succeq_i i$
+(1) Matching is individually rational: $\mu^*(i) \succeq_i i$
 (2) There is no blocking pair $(t,b)$.
 
 

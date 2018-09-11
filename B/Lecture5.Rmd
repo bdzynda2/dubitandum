@@ -31,12 +31,12 @@ __Definition__: $\mu^*:(T \cup B) \rightarrow (T \cup B)$ is _I-Optimal Stable m
 2. $\mu^* \ge_I \mu$ for all stable $\mu$
 
 
-$\mu^* >_I \mu$ if $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succ_i \mu(i)$
+$\mu^* >_I \mu$ if for all $i \in I$ $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succ_i \mu(i)$
 
 
 
 
-### Proposition:
+## Proposition (Thm 2.12 in Roth, Sotomayor?):
 
 _Suppose preferences are strict. Then for each $I \in \{T,B\}$ the match $\mu^*_{ID}:(T \cup B) \rightarrow (T \cup B)$ is an I-optimal stable match._
 
@@ -92,9 +92,9 @@ $b^* \succsim_{t^{**}} \mu(t^{**})$
 - observe that for each $l < k$, $\mu(t^{**}) \ne \hat{p}^l(t^{**})$
 - if there were an $l \le k$ such that $\hat{P}^l(t^{**}) = \mu(t^{**}) = b^{**}$, whoever is getting that offer $b^{**}$ is acheivable to $t^{**}$ by the fact that whoever got that offer is preferable. 
 - By (1) it must be the case that whoever got that offer $\hat{\mu}^l(\hat{\mu}(t^{**})=b^{**}) = t^{**}$
-- Its got to be the case by the DA Algorithm, $\hat{P}^{l+1}(t^{**}) = \mu(t^**)$
-- Then this implies $\hat{P}^k(t^**) = \mu(t^{**})$ but this cannot be
-- We know on round $k$, $\hat{P}^k(t^**) = b^*$. We know that $\mu(t^*) = b^*$. So, that implies that $\mu(t^{**}) \ne b^*$ and $b^* \ne b^{**}$. 
+- Its got to be the case by the DA Algorithm, $\hat{P}^{l+1}(t^{**}) = \mu(t^{**})$
+- Then this implies $\hat{P}^k(t^{**}) = \mu(t^{**})$ but this cannot be
+- We know on round $k$, $\hat{P}^k(t^{**}) = b^*$. We know that $\mu(t^*) = b^*$. So, that implies that $\mu(t^{**}) \ne b^*$ and $b^* \ne b^{**}$. 
 
 
 
@@ -103,7 +103,7 @@ We know that $\hat{P}^k(t^{**}) \succsim_{t^{**}} b$ for $b \ne \{\hat{P}^l(t^{*
 
 
 
-On round $k$ make proposal to $b^*$: $b^* = \hat{P}^k(t^{**}) \succsim_{t^**} \mu(t^**)$
+On round $k$ make proposal to $b^*$: $b^* = \hat{P}^k(t^{**}) \succsim_{t^{**}} \mu(t^{**})$
 
 
 
