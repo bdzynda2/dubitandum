@@ -11,23 +11,23 @@ Order $\ge_I$ for $I \in \{T, B\}$
 
 $\mu \ge_i \mu'$ if for each $i: \mu(i) \succsim_i \mu'(i)$
 
-$\mu >_\mu'$ if $\mu \ge_I \mu'$ and there exists an $i \in I$ such that $\mu(i) \succ_i \mu'(i)$
+$\mu >_i \mu'$ if $\mu \ge_I \mu'$ and there exists an $i \in I$ such that $\mu(i) \succ_i \mu'(i)$
 
 
 
 
 ## Theorem (Knuth) 
 
-_Suppose preferences are strict. If $\mu and \mu'$ are stable then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$_
+_Suppose preferences are strict. If $\mu$ and $\mu'$ are stable then $\mu >_T \mu'$ if and only if $\mu' >_B \mu$_
 
 
-__Proof__: Suppos $\mu >_T \mu':$ to show:
+__Proof__: Suppose $\mu >_T \mu':$ to show:
 
 (1) for each $b \in B$, $\mu'(b) \succsim_b \mu(b)$
 (2) for some $b \in B$, $\mu'(b) \succ_b \mu(b)$
 
 
-To show (1): Suppose not, i.e. there is some $b \in B$ such that $\mu(b) \succ_b \mu'(b)$
+To show (1): Suppose the contrary, i.e. there is some $b \in B$ such that $\mu(b) \succ_b \mu'(b)$
 
 + In other words will construct a blocking pair to $\mu'$ with $b$, contradicting stability. 
 + Notice: $\mu(b) \in T$ since $\mu'$ is stable, $\mu'(b) \succsim_b b$ - that is it is individually rational.
@@ -87,7 +87,7 @@ Suppose preferences are strict and $\mu$ and $\mu'$ are stable. Then, $\lambda_T
 
 __Proof__:
 
-Part 1: Suppose that $\lambda_T(t) = \mu(t)$. Now this fact telss us that $\mu(t) \succsim_t \mu'(t)$ by definition of $\lambda_T$. So, one possibility is that they are indifferent. Notice, that if this is the case since preferences are strict, we have to have that $\mu(t) = \mu'(t)$ because preferences are strict. Let's call that match $b$. 
+Part 1: Suppose that $\lambda_T(t) = \mu(t)$. Now this fact tells us that $\mu(t) \succsim_t \mu'(t)$ by definition of $\lambda_T$. So, one possibility is that they are indifferent. Notice, that if this is the case since preferences are strict, we have to have that $\mu(t) = \mu'(t)$ because preferences are strict. Let's call that match $b$. 
 
 Then $\mu'(b) = \mu(b) = \lambda_T(b) = t$. 
 
@@ -145,7 +145,7 @@ __Part 2__: want to show that $\lambda_T$ is individually rational since both $\
 + Suppose there is a blocking pair $(t^*, b^*)$ that blocks $\lambda_T$. 
 + Since $\mu$ is stable, it cannot be that $\lambda_T(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
 + and since $\mu'$ is stable, it cannot be that $\lambda_T(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$
-+ Hence, either (a) $\lambda(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$ or (b) $\lambda(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
++ Hence, either (a) $\lambda_T(t^*) = \mu(t^*)$ and $\lambda_T(b^*) = \mu'(b^*)$ or (b) $\lambda_T(t^*) = \mu'(t^*)$ and $\lambda_T(b^*) = \mu(b^*)$
 
 
 If (a):

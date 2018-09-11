@@ -120,7 +120,10 @@ This implies (by "no blocking pair") that $\mu(b_1) = t_2 \implies \mu(t_2) = b_
 
 In short: 
 
-$$\mu(t_1) = b_2 \\ \mu(b_1) = t_2 \\ \mu(t_2) = b_1 \\ \mu(b_2) = t_1$$
+$$\mu(t_1) = b_2$$ 
+$$\mu(b_1) = t_2$$ 
+$$\mu(t_2) = b_1$$
+$$\mu(b_2) = t_1$$
 
 are all stable matchings. Here, every $b$ gets its most preferred option
 

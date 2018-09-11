@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1536689232546.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2358163341",
+    "id" : "D9F68D73",
+    "lastKnownWriteTime" : 1536689264,
+    "last_content_update" : 1536689264765,
+    "path" : "~/Fall-2018/dubitandum/B/Lecture2.Rmd",
+    "project_path" : "Lecture2.Rmd",
+    "properties" : {
+        "cursorPosition" : "125,2",
+        "scrollLine" : "114"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
