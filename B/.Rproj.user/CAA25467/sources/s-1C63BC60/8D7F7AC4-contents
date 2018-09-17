@@ -31,12 +31,12 @@ __Definition__: $\mu^*:(T \cup B) \rightarrow (T \cup B)$ is _I-Optimal Stable m
 2. $\mu^* \ge_I \mu$ for all stable $\mu$
 
 
-$\mu^* >_I \mu$ if $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succ_i \mu(i)$
+$\mu^* >_I \mu$ if for all $i \in I$ $\mu^* \ge_I \mu$ and for some $i \in I: \mu^*(i) \succ_i \mu(i)$
 
 
 
 
-### Proposition:
+## Proposition (Thm 2.12 in Roth, Sotomayor?):
 
 _Suppose preferences are strict. Then for each $I \in \{T,B\}$ the match $\mu^*_{ID}:(T \cup B) \rightarrow (T \cup B)$ is an I-optimal stable match._
 
@@ -61,7 +61,7 @@ Suppose the result is not true. Then there exists some $k$ such that:
 1. for each $l < k$ and each $t \in T$: if $\hat{P}^l(t)=b$ and $b$ is acheivable for $t$, then $\hat{\mu}^l(b) = t$
 2. There is some $t^* \in T$ such that $\hat{P}^k(t^*) = b^*$, $b^*$ is acheivable for $t^*$ and $\hat{\mu}^k (b^*) \ne t^*$
 
-There is stable matching $\mu:(T \cup B) \rightarrow (T \cup B)$ with $\mu(t^*) = b^*$. 
+There is stable matching $\mu:(T \cup B) \rightarrow (T \cup B)$ with $\mu(t^*) = b^*$. That is to say, $b^*$ is acheivable for $t^*$. 
 
 Now, $\hat{\mu}^k(b^*) \ne t^* \implies t^{**} = \hat{\mu}^k(b^*)$ and $t^* \ne t^{**}$
 
@@ -69,41 +69,39 @@ Now, $\hat{\mu}^k(b^*) \ne t^* \implies t^{**} = \hat{\mu}^k(b^*)$ and $t^* \ne 
 Observe $\mu(t^{**}) \ne b^*$
 
 
-Will show: $(t^{**}, b^*)$ blocks $\mu$, contradicting the fact that $\mu$ is stable. 
+Will show: $(t^{**}, b^*)$ blocks $\mu$, contradicting the fact that $\mu$ is stable. Precisely, two points of proof:
 
-$$t^{**} \succ_{b^*} \mu(b^*)$$
-$$b^* \succsim_{t^{**}} \mu(t^{**})$$
+### First: $t^{**} \succ_{b^*} \mu(b^*)$
 
 
-__First__
-
-$$t^{**} \succ_{b^*} \mu(b^*) \implies \hat{P}^k(t^{*}) = \hat{P}^k(t^{**}) = b^*$$
-
+To show: $t^{**} \succ_{b^*} \mu(b^*)$ Let:
+$$\hat{P}^k(t^{*}) = \hat{P}^k(t^{**}) = b^*$$
 $$\hat{\mu}^k(b^*) = t^{**} \succ_{b^*} t^* = \mu(b^*)$$
 
 
 
 
 
-__Second__
+### Second: $b^* \succ_{t^{**}} \mu(t^{**})$
 
-$b^* \succsim_{t^{**}} \mu(t^{**})$
+$b^* \succ_{t^{**}} \mu(t^{**})$
 
-- observe that for each $l < k$, $\mu(t^{**}) \ne \hat{p}^l(t^{**})$
-- if there were an $l \le k$ such that $\hat{P}^l(t^{**}) = \mu(t^{**}) = b^{**}$, whoever is getting that offer $b^{**}$ is acheivable to $t^{**}$ by the fact that whoever got that offer is preferable. 
+Want to show that for each $l < k$, $\mu(t^{**}) \ne \hat{p}^l(t^{**})$
+
+- if there were an $l \le k$ such that $\hat{P}^l(t^{**}) = \mu(t^{**}) = b^{**}$, whoever is getting that offer $b^{**}$ is acheivable to $t^{**}$ since $\mu$ is stable and $\mu(t^{**})=b^{**}$. 
 - By (1) it must be the case that whoever got that offer $\hat{\mu}^l(\hat{\mu}(t^{**})=b^{**}) = t^{**}$
-- Its got to be the case by the DA Algorithm, $\hat{P}^{l+1}(t^{**}) = \mu(t^**)$
-- Then this implies $\hat{P}^k(t^**) = \mu(t^{**})$ but this cannot be
-- We know on round $k$, $\hat{P}^k(t^**) = b^*$. We know that $\mu(t^*) = b^*$. So, that implies that $\mu(t^{**}) \ne b^*$ and $b^* \ne b^{**}$. 
+- Its got to be the case by the DA Algorithm, $\hat{P}^{l+1}(t^{**}) = \mu(t^{**})$
+- Then this implies $\hat{P}^k(t^{**}) = \mu(t^{**})$ but this cannot be
+- We know on round $k$, $\hat{P}^k(t^{**}) = b^*$. We know that $\mu(t^*) = b^*$. So, that implies that $\mu(t^{**}) \ne b^*$ and $b^* \ne b^{**}$. 
 
 
 
-We know that $\hat{P}^k(t^{**}) \succsim_{t^{**}} b$ for $b \ne \{\hat{P}^l(t^{**}): l = 1,2,...,k\}$ by the DA algorithm and strict preferences. 
+>We know that $\hat{P}^k(t^{**}) \succ_{t^{**}} b$ for $b \ne \{\hat{P}^l(t^{**}): l = 1,2,...,k\}$ by the DA algorithm and strict preferences. 
 
 
 
 
-On round $k$ make proposal to $b^*$: $b^* = \hat{P}^k(t^{**}) \succsim_{t^**} \mu(t^**)$
+>On round $k$ make proposal to $b^*$: $b^* = \hat{P}^k(t^{**}) \succ_{t^{**}} \mu(t^{**})$
 
 
 
