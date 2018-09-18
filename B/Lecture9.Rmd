@@ -1,0 +1,138 @@
+---
+title: "Lecture 9"
+author: "David Zynda"
+date: "September 18, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Rethinking Stability
+
+Formerly, we had the the pairwise stable matchings in 1-to-1 matches was a part of the core. In the many-to-one environment, however, we will need to make careful distinctions between group stability, pairwise stability, and being in the core. The main idea can be summarized in the the following example with colleges and potential students. Perhaps a college, with a given matching and a quota of 10 students, has been matched with 10 students. Suppose that the college could be better off with another matching. There are two scenarios. First, perhaps the college would like to dump five of the students and keep five from the original matching. Then, it might pick up two other students from a deviating coalition, but not necessarily all. A second scenario might be that the college does not want to keep any of the students from the original matching, but rather seeks to replace its entire matching with students from the deviating coalition. Teasing out the formal differences between these two kinds of stability will be critical for many-to-one matching. 
+
+## Blocks 
+
+__Definition:__ _A nonempty coalition $C \subseteq T \cup B$ blocks $\mu: (T \cup B) \rightarrow (T \cup B \cup \mathcal{B})$ if there exists a matching $\mu': (T \cup B) \rightarrow (T \cup B \cup \mathcal{B})$ such that:_
+
+(1) For each $t \in C$: 
+    (a) If $\mu(C) \subseteq B$ then either $\mu'(t) = t$ or $\mu'(t) = C \cup \mu(t)$.
+    (b) If $\mu(t) = t$ then $\mu'(t) \subseteq C$.
+(2) For each $i \in C$: $\mu'(i) \succ_i \mu(i)$. 
+
+
+__Definition:__ _If there exists a nonempty coalition $C \subseteq T \cup B$ and a matching $\mu'$ that blocks $\mu$, say that $\mu'$ dominates $\mu$ via $C$._ 
+
+
+## Strongly blocks
+
+__Definition:__ _A nonempty coalition $C \subseteq T \cup B$ strongly blocks $\mu$ if there exists a matching $\mu': (T \cup B) \rightarrow (T \cup B \cup \mathcal{B})$ such that:_
+
+
+(1) For each $b \in C$, $\mu'(b) \in C$ and for each $t \in C$, $\mu'(t) \subseteq C$ or $\mu'(t) = t$. 
+(2) For each $i \in C$, $\mu'(i) \succ_i \mu(i)$. 
+
+__Definition:__ _If there exists a nonempty coalition $C \in T \cup B$ and $\mu'$ that strongly blocks $\mu$, say $\mu'$ strongly dominates $\mu$. _
+
+
+Notice that point (1) in the definition of _strongly blocks_ allows for $b \in C: \mu'(b) = b$ or $\mu'(b) \in C \cap T$. That is, the $b$ can stay with himself under the new matching $\mu'$ or he can match with a $T$ only if that $T$ is also in the coalition. 
+
+Also notice that point (2) in the definition of _strongly blocks_  says that if $\mu'(t) \subseteq C$ then $\mu'(t) \subseteq C \cap B$. And $t \in C \implies \mu'(t) = t$ has $\mu'(t) \in C$. 
+
+
+All in all, the difference comes only in one place - the first point in the definition of _blocks_: a college $t$ could have a matching $\mu'$ which allows for some coalition members and others outside of the coalition as well. That is, a college keeps some students from the old matching and brings some new ones on from the deviating coalition as well. 
+
+However, _strongly blocks_ will not allow this. To strongly dominate would mean all students $b$ formerly matched with college $t$ would be replaced with only students from the deviating coalition. 
+
+
+__Note:__ If a coalition _strongly blocks_ $\mu$, then it _blocks_ $\mu$. 
+
+
+__Definition:__ A matching $\mu$ is group stable there is no coalition that blocks $\mu$. Some literature, like _Roth, Sotomayor_ will just say stable instead of group stable. 
+
+__Definition:__ A matching $\mu$ is in the core if there is no coalition that _strongly blocks_ $\mu$. 
+
+
+
+## Proposition 1: 
+
+(1) If $\mu$ is group stable, then $\mu$ is in the core. 
+(2) If $\mu$ is group stable, then $\mu$ is pairwise stable. 
+
+_Recall, a matching $\mu: (T \cup B) \rightarrow (T \cup B \cup \mathcal{B})$ is pairwise stable if it is individually rational and there is no blocking pair._
+
+__Proof__:
+
+(1) If $\mu$ is not in the core, then there exists a strong block that is also a block $\implies \mu$ is not group stable. 
+(2) Need to show the following:
+
+    (2a) If $\mu$ is group stable then $\mu$ is individually rational. 
+    
+    (2b) If $\mu$ is group stable, then there is no blocking pair. 
+    
+(2a) Fix $\mu$ group stable. Show that it is individually rational. We will show, in essence, that no $B$ agents block $\mu$.
+
+- Fix $b$ and define $C = \{b\}$. 
+- There is no $\mu'$ with $\mu'(b) = b$ and $\mu'(b) \succ_b \mu(b)$ (by definition of group stable). 
+- There is a match $\mu'$ with $\mu'(b) = b \implies \mu(b) \succ_b \mu'(b)$. 
+
+The above is just all to show that no $B$ agent blocks $\mu$. 
+
+Now, fix $t$ and let $C = \{t\}$ since:
+
+- If $\mu'$ is a matching with $\mu'(t)=t$, then $\mu(t) \succsim_t \mu'(t) = t$. See points (1) and (2) in definition of block from which this falls. 
+- Let $\mu'$ be a matching with $\mu'(t) \subsetneq \mu(t) \subseteq B \setminus \{\emptyset\} \implies \mu(t) \succsim_t \mu'(t)$ by definition (1) and (2) of a block. 
+    
+So, we have (from definition in the last lecture of t-blocks):
+
+- $\mu(t) \succsim_t t$ and
+- if $\tilde{B} \subseteq \mu(t)$ then $\mu(t) \succsim_t \tilde{B}$.
+    
+All the above was just to show that no $t$ agent blocks $\mu$. Now, we still want to show that thre is no blocking pair.
+
+
+
+(2b) If $\mu$ is group stable, then there is no blocking pair. Prove contrapositive: If there is a blocking pair $(t^*, b^*)$, then there is a blocking coalition $C$. 
+
+The contrapositive implies that there exists a $\tilde{B} \subseteq \mu(t)$ such that:
+
+(1) $| \tilde{B} \cup \{b^*\} | \le q_{t^*}$
+(2) $\tilde{B} \cup \{b^*\} \succ_{t^*} \mu(t^*)$
+(3) $t^* \succ_{b^*} \mu(b^*)$
+
+Let $C = \{t^*, b^*\}$. And Fix any matching $\mu'$ with $\mu'(t^*) = \tilde{B} \cup \{b^*\}$ and $\mu'(b^*) = t^* \in C$. 
+
+We can construct such a matching because:
+
+$$| \tilde{B} \cup \{b^*\} | \le q_{t^*}$$
+$$\mu'(t^*) \subseteq C \cup \mu(t^*)$$
+$$\mu'(b^*) \in C$$
+
+Then, by (2) and (3) in this section (2b), $C$ blocks $\mu$. 
+
+
+
+
+## Example: 
+
+_$\mu$ is in the core but not group stable (and therefore not pairwise stable)_
+
+Let $T = \{t\}$ and $B = \{b_1, b_2, b_3\}$ and $q_t = 2$. 
+
+- $t$ is acceptable to all $B$ agents. 
+- $t$ finds all $B$ agents acceptable. And, $t$ has all responsive preferences. 
+
+$$t: \{b_1, b_3\} \succ_t \{b_1\} \succ_t \{b_2\} \succ_t \{b_3\}$$
+
+__Claim: There is no strong block to $\mu$.__
+
+If I am going to find a new $C$ then there should be $C \cap B \succ_t \{b_1, b_3\}$. 
+
+\{b_1\} is most preferred. So, $b_1 \in C \cap B$. Now, $b_1$ is indifferent between the new match and the old match. In both cases, he is still matched to $t$, and is happy. So, there is no strong block. We could change things by getting rid of $b_3$ and replacing $b_2$, but so doing would not make everyone better, so that would vioalte the concept of the core. 
+
+If a match is not pairwise stable, then it is not group stable:
+
+Look at $(t_1, b_2)$. Let $\tilde{B} = \{b_1\} \subseteq \mu(t)$. Since $|\tilde{B} \cup \{b_2\}| \le 2$ the quota $q_t$ is satisfied. Now, $\tilde{B} \cup \{b_2\} \succ_t \mu(t)$ and $t \succ_{b_2} \mu(b_2) = b_2$. Then, both strictly prefer one another and form a block. Then, there is no pairwise stability. 
+
