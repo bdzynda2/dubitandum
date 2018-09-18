@@ -5,7 +5,7 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2841020329",
     "id" : "D4D24776",
     "lastKnownWriteTime" : 1536702492,
     "last_content_update" : 1536702492,
@@ -13,7 +13,8 @@
     "project_path" : "Lecture7.Rmd",
     "properties" : {
         "cursorPosition" : "108,0",
-        "scrollLine" : "101"
+        "marks" : "<:108,0\n>:110,78",
+        "scrollLine" : "0"
     },
     "relative_order" : 8,
     "source_on_save" : false,

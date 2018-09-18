@@ -104,7 +104,19 @@ Want to show that for each $l < k$, $\mu(t^{**}) \ne \hat{p}^l(t^{**})$
 >On round $k$ make proposal to $b^*$: $b^* = \hat{P}^k(t^{**}) \succ_{t^{**}} \mu(t^{**})$
 
 
+_________________________________
+__Alternatively__ _(because David is still confused by what he recorded from class above)_ MIT offers the following proof for the above:
 
+We say that $b$ is achievable for _t_ if there is some stable matching $\mu$ with $\mu(t) = b$. For a contradiction, suppose a man ($t$) is rejected by an achievable woman $b$ at some stage of the deferred acceptance algorithm. 
+
+Consider the first step of the algorithm in which a man $t$ is rejected by an achievable woman $b$. Let $\mu$ be a stable matching where $\mu(t) = b$. Then $b$ tentatively accepted some other man $t'$ at this step. So:
+
+(i) $t' \succ_b t$ since this is the first time a man is rejected by an achievable woman. 
+(ii) $b \succ_{t'} \mu(t')$
+
+By (i) and (ii), $(t', b)$ blocks $\mu$, contradicting the stability of $\mu$. [^1]
+
+_________________________________
 
 __Proof of Proposition__ for $I = T$
 
@@ -196,6 +208,6 @@ __Definition__ Let $\mu': (T\cup B) \rightarrow (T \cup B)$ is an _I-Pessimal_ s
 
 _Suppose preferences are strict. Then $\mu_{ID}$ is J-pessimal._ 
 
-
+[^1]: https://ocw.mit.edu/courses/economics/14-16-strategy-and-information-spring-2016/lecture-slides/MIT14_16S16_Matching.pdf
 
 

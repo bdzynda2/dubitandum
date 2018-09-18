@@ -43,7 +43,7 @@ A preference relation $\succsim_t$ is responsive if:
 
 *Note that $\mu: (T \cup B) \rightarrow (T \cup B \cup \mathcal{B})$ where the range says that either $b$ matches to $t \in T$, or $t$ matches to himself ($T$), or $b$ to himself $b \in B$ or, lastly, $t$ matches with a $b \in \mathcal{B}$ meaning some particular subset of $b$'s
 
-__Remark__: _Suppose we had $t_1 and t_2$ with:_
+__Remark__: _Suppose we had $t_1$ and $t_2$ with:_
 
 $$\mu(t_1) \subseteq B$$
 $$\mu(t_2) \subseteq B$$
@@ -134,7 +134,7 @@ This implies, then, that $(t_1, b_3)$ form a block.
 
 
 
-It follows from $(a), (b)$ and $(c)$ that there is some $i$ sich that $\mu(t_i) = t_i$. Who would that $i$ be?
+It follows from $(a), (b)$ and $(c)$ that there is some $i$ such that $\mu(t_i) = t_i$. Who would that $i$ be?
 
 - It must be $\mu(t_1) = t_1$ since if $\mu(t_2) = t_2$, then there is some $b$ with $\mu(b) = b$. But, $(t_2, b)$ would form a block. So, this cannot be. 
 - It must be that $\mu(t_2) = t_2$ by the same argument. 
