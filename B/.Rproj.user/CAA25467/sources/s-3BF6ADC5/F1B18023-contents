@@ -1,0 +1,152 @@
+---
+title: "Lecture 10"
+author: "David Zynda"
+date: "September 20, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Example
+
+_A pairwise stable match may not be group stable_
+
+__Definition:__ A matching $\mu$ is __group stable__ there is no coalition that blocks $\mu$. 
+
+__Definition:__ A matching $\mu: (T \cup B) \rightarrow (T \cup B \cup \mathcal{B})$ is __pairwise stable__ if it is individually rational and there is no blocking pair. That is to say, it is pairwise stable.
+
+With those definitions in mind, take the example where we have pairwise stability but not group stability. 
+
+$$T = \{t\}$$
+$$B = \{b_1, b_2, b_3\}$$
+$$q = 3$$
+
+$$t: B \succ_t \{b_1\} \succ_t \{b_2\} \succ_t \{b_3\} \succ_t \{b_1, b_2\} \succ_t \{b_1, b_3\} \succ_t \{b_2, b_3\} \succ_t t$$
+$$\forall i = 1,2,3: t \succ_{b_i} b_i$$
+
+This match is pairwise stable. Because it makes $t$ worse off, $t$ will not choose to go alone. Additionally, $b$'s cannot block. No pair of agents $(t, b_i)$ would block since no $b_2, b_3 \succ_t b_1$ or any pair. 
+
+So, this is pairwise stable, but it is not group stable. Notice the following coalition $C = \{t\} \cup \{b_2, b_3\}$ blocks $\mu$. Then $\mu'(t) = B$ and $\mu(b_i) = t$ for all $i$. What happened then? What made the difference between pairwise and group stability? The preferences are not responsive:
+
+$\{b_1\} \succ_t \{b_1, b_2\}$ but $\{b_1, b_2, b_3\} \succ_t \{b_1, b_3\}$.
+
+
+## Theorem
+
+_Suppose preferences are responsive. A matching $\mu$ is group stable if and only if it is pairwise stable._
+
+To prove this theorem, two lemmas are needed. 
+
+
+### Lemma 1: 
+
+_Suppose preferences are responsive. Fix $B_1, B_2, \subset B \setminus \{\emptyset\}$:_
+
+(1) $B_1 \ B_2 \ne \emptyset$ and $|B_2| \ge |B_1|$ In other words, $B_1$ is not a subset of $B_2$. 
+(2) For each $\hat{B} \subseteq B_2$, $B_2 \succsim_t \hat{B}$. This is to say that you can't get rid of stuff and be better off. 
+(3) $B_1 \succ_t B_2$.
+
+_Then, there exists $b_1 \in B_1 \setminus B_2$ and $b_2 \in B_2 \setminus B_1$ such that $\{b_1\} \succ_t \{b_2\}$._ 
+
+
+
+__Proof:__
+
+
+We have $B_1 \setminus B_2 = \emptyset$ by assumption. And, we have $|B_2| \ge |B_1| \implies B_2 \setminus B_1 = \emptyset$. 
+
+Enermerate:
+
+$$B_1 \setminus B_2 = \{b_1, ..., b_M\}$$
+$$B_2 \setminus B_1 = \{b_{M+1}, ..., b_{M+K}\}$$
+
+
+Suppose contra the hypothesis that for each $m=1, ..., M$ and each $k = 1,..., k$:
+
+$$\{b_{k+M}\} \succsim_t \{b_m\}$$
+
+
+Start with $b_1$ set. I can write:
+
+$$(B_1 \setminus \{b_1\}) \cup \{b_1\} = B_1$$
+By responsive preferences, we have the following:
+
+$$(B_1 \setminus \{b_1\}) \cup \{b_{M+1}\} \succsim_t (B_1 \setminus \{b_1\}) \cup \{b_1\} =B_1$$
+Then, keep repeating the processs, throwing out $\{b_2\}, \{b_3\}, ...$ and adding $\{b_{m+2}\}, \{b_{m+3}\},...$. That is, we kick out things we like less from the left hand side, and we add back in things that we like better. 
+
+So, we have shown that it is true for $k=1$, and we assume that it is true (inductive hypothesis) for $k \ge 2$ and $k \le M-1$. 
+
+Then we add the inductive hypothesis: For each $k=1, ..., M-1$:
+
+$$\hat{B}_k = (B_1 \setminus \{b_1,..., b_k\}) \cup \{b_{M+1}, ..., b_{m+k}\} \succsim_t B_1$$
+
+
+
+We want to show this is true for the $k+1$ step. If we can show that $\hat{B}_{k+1} \succsim_t \hat{B}_k$, then by transitivity with the above inductive hypothesis, $\hat{B}_{k+1} \succsim_t B_1$
+
+
+$$\hat{B}_{k+1} = (B_1 \setminus \{b_1,..., b_k, b_{k+1}\}) \cup \{b_{M+1}, ..., b_{m+k}\} \cup \{b_{m+k+1}\} \succsim_t (B_1 \setminus \{b_1,..., b_k, b_{k+1}\}) \cup \{b_{M+1}, ..., b_{m+k}\} \cup \{b_{k+1}\} = \hat{B}_k$$
+
+Therefore, it is true that for any $M$, $\hat{B}_M \succsim_t \hat{B}_1$. Now, take:
+
+$$\hat{B}_M \succsim_t B_1$$
+$$\hat{B}_M = (B_1 \setminus (B_1 \setminus B_2)) \cup \{b_{m+1}, ..., b_{M+M}\}$$
+
+$$\hat{B}_M = (B_1 \cap B_2) \cup \{b_{M+1}, ..., b_{m+m}\} \succsim_t B_1 \succsim_t B_2$$
+
+Now, since $(B_1 \cap B_2) \subseteq B_2$ and $\{b_{M+1}, ..., b_{m+m}\} \subseteq B_2 \setminus B_1 \subseteq B_2$. Therefore, $\hat{B}_M \subseteq B_2$ and so $\hat{B}_M \succsim_t B_2$. 
+
+
+
+### Lemma 2:
+
+_Suppose preferences are responsive. Fix $B_1, B_2, \subset B \setminus \{\emptyset\}$:_
+
+(1) $B_1 \ B_2 \ne \emptyset$. 
+(2) For each $\hat{B} \subseteq B_2$, $B_2 \succsim_t \hat{B}$. This is to say that you can't get rid of stuff and be better off. 
+(3) $B_1 \succ_t B_2 \succ_t t$.
+
+_Then, there exists $b_1 \in B_1 \setminus B_2$ such that $\{b_1\} \succ_t t$._ 
+
+
+
+__Proof__:
+
+Set $B_1 \setminus B_2 = \{b_1, ..., b_M\}$. Then, suppose contra hypothesis $t \succsim_t \{b_m\}$ for each $m=1, ..., M$. 
+
+Responsive preferences indicate the following:
+
+$$B_1 \setminus \{b_1\} \succsim_t (B_1 \setminus \{b_1\}) \cup \{b_1\} = B_1$$
+
+Recall from an earlier lecture that responsive preferences tell us that $\hat{B} \succsim_t \hat{B} \cup \{b\}$ if and only if $t \succsim_t \{b\}$. Here, $\hat{B} = B_1 \setminus \{b_1\}$. Then $\hat{B} = (B_1 \setminus \{b_1\}) \succsim_t \hat{B} \cup \{b_1\} = B_1$. 
+
+Then, our inductive hypothesis is that $B_1 \setminus \{b_1, ..., b_m\} \succsim_t B_1$. 
+
+$$\hat{B} = B_1 \setminus \{b_1,..., b_m, b_{m+1}\}$$
+$$\hat{B} \succsim \hat{B} \cup \{b_{m+1}\}$$
+
+$$B_1 \setminus \{b_1, ..., b_{m+1}\} \succsim_t B_1 \setminus \{b_1, ..., b_m\}$$
+By transitivity: 
+$$\implies B_1 \setminus \{b_1, ..., b_{m+1}\} \succsim_t B_1$$
+$$\iff B_1 \setminus (B_1 \setminus B_2) \succsim_t B_1$$
+$$\iff B_1 \cap B_2 \succsim_t B_1$$
+
+$$\implies B_1 \cap B_2 \succ_t B_2$$
+Then, a subset of $B_2$ is greater than $B_2$. A contradiction of one of our assumptions. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
