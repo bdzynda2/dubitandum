@@ -80,7 +80,23 @@ Then we add the inductive hypothesis: For each $k=1, ..., M-1$:
 
 $$(B_1 \setminus \{b_1,..., b_k\}) \cup \{b_{M+1}, ..., b_{m+k}\} \succsim_t B_1$$
 
-We want to show this is true for the $k+1$ step. 
+
+
+We want to show this is true for the $k+1$ step, or the inductive step:
+
+
+$$(B_1 \setminus \{b_1,..., b_k, b_{k+1}\}) \cup \{b_{M+1}, ..., b_{m+k}\} \cup \{b_{m+k+1}\} \succsim_t (B_1 \setminus \{b_1,..., b_k, b_{k+1}\}) \cup \{b_{M+1}, ..., b_{m+k}\} \cup b_{k+1}$$
+
+
+
+
+
+
+
+
+
+
+
 
 
 
