@@ -25,6 +25,8 @@ $$q = 3$$
 
 $$t: B \succ_t \{b_1\} \succ_t \{b_2\} \succ_t \{b_3\} \succ_t \{b_1, b_2\} \succ_t \{b_1, b_3\} \succ_t \{b_2, b_3\} \succ_t t$$
 $$\forall i = 1,2,3: t \succ_{b_i} b_i$$
+Let $\mu(t) = b_1$. 
+
 
 This match is pairwise stable. Because it makes $t$ worse off, $t$ will not choose to go alone. Additionally, $b$'s cannot block. No pair of agents $(t, b_i)$ would block since no $b_2, b_3 \succ_t b_1$ or any pair. 
 
