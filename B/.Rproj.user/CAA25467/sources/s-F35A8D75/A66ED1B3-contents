@@ -124,9 +124,13 @@ Let $T = \{t\}$ and $B = \{b_1, b_2, b_3\}$ and $q_t = 2$.
 - $t$ is acceptable to all $B$ agents. 
 - $t$ finds all $B$ agents acceptable. And, $t$ has all responsive preferences. 
 
-$$t: \{b_1, b_3\} \succ_t \{b_1\} \succ_t \{b_2\} \succ_t \{b_3\}$$
+$$t: \{b_1, b_2\} \succ_t \{b_1, b_3\} \succ_t \{b_2, b_3\} \succ_t \{b_1\} \succ_t \{b_2\} \succ_t \{b_3\} \succ_t t$$
+
+Assume that $\mu(t) = \{b_1, b_3\}$
 
 __Claim: There is no strong block to $\mu$.__
+
+That is to say, the matching $\mu$, despite certainly not being pairwise stable, is in the core since there is no strong block (only a non-strong block, that is a block).
 
 If I am going to find a new $C$ then there should be $C \cap B \succ_t \{b_1, b_3\}$. 
 

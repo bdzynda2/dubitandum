@@ -46,7 +46,7 @@ To prove this theorem, two lemmas are needed.
 
 _Suppose preferences are responsive. Fix $B_1, B_2, \subset B \setminus \{\emptyset\}$:_
 
-(1) $B_1 \ B_2 \ne \emptyset$ and $|B_2| \ge |B_1|$ In other words, $B_1$ is not a subset of $B_2$. 
+(1) $B_1 \setminus B_2 \ne \emptyset$ and $|B_2| \ge |B_1|$ In other words, $B_1$ is not a subset of $B_2$. 
 (2) For each $\hat{B} \subseteq B_2$, $B_2 \succsim_t \hat{B}$. This is to say that you can't get rid of stuff and be better off. 
 (3) $B_1 \succ_t B_2$.
 
@@ -57,7 +57,7 @@ _Then, there exists $b_1 \in B_1 \setminus B_2$ and $b_2 \in B_2 \setminus B_1$ 
 __Proof:__
 
 
-We have $B_1 \setminus B_2 = \emptyset$ by assumption. And, we have $|B_2| \ge |B_1| \implies B_2 \setminus B_1 = \emptyset$. 
+We have $B_1 \setminus B_2 = \emptyset$ by assumption. And, we have $|B_2| \ge |B_1| \implies B_2 \setminus B_1 \ne \emptyset$. 
 
 Enermerate:
 
