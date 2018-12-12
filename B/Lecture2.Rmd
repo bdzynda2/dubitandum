@@ -55,8 +55,8 @@ $$\mu(i) \in A(i) \cup \{i\}$$
 __Definition__: a pair $(t,b)$ blocks $\mu$ if:
 
 
--  $b \succsim_t \mu(t)$
--  $t \succsim_b \mu(b)$
+-  $b \succ_t \mu(t)$
+-  $t \succ_b \mu(b)$
 
 
 In English:
@@ -85,18 +85,20 @@ $B = \{b_1, b_2\}$
 Preferences of $T$:
 
 
-$$t_1: \space b_1 \succsim_{t_1} b_2 \succsim_{t_1} t_1$$
+$$t_1: \space b_1 \succ_{t_1} b_2 \succ_{t_1} t_1$$
 
-$$t_2: \space b_2 \succsim_{t_2} b_1 \succsim_{t_2} t_2$$
+$$t_2: \space b_2 \succ_{t_2} b_1 \succ_{t_2} t_2$$
 
 
 Preferences of $B$:
 
 
-$$b_1: \space t_2 \succsim_{b_1} t_1 \succsim_{b_1} b_1$$
+$$b_1: \space t_2 \succ_{b_1} t_1 \succ_{b_1} b_1$$
 
-$$b_2: \space t_1 \succsim_{b_2} t_2 \succsim_{b_2} b_2$$
+$$b_2: \space t_1 \succ_{b_2} t_2 \succ_{b_2} b_2$$
 
+
+_Note: these lecture notes are bound to have mistakes. Pay close attention to where I may have put $\succsim$ instead of $\succ$ I think I have corrected them all in this lecture_
 
 As can be seen, each match is individually rational since for each individual in each side of the market, they either prefer to keep to themselves or has an agent on the otherside of the market who is at least as much preferred than to be alone. 
 
